@@ -1,5 +1,5 @@
 (define (domain rescue)
-    (:requirements :strips :typing :durative-actions :fluents :duration-inequalities :adl :domain-axioms :derived-predicates :timed-initial-literals)
+    (:requirements :typing :durative-actions :fluents :duration-inequalities :adl :derived-predicates :timed-initial-literals)
 
     (:types location physthing - object
 			staticthing machine - physthing
