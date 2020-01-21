@@ -1,5 +1,5 @@
 (define (domain rescue)
-    (:requirements :strips :typing :durative-actions :fluents :adl :timed-initial-literals)
+    (:requirements :typing :durative-actions :fluents :adl :timed-initial-literals)
 
     (:types location physthing - object
 			staticthing machine - physthing
@@ -34,16 +34,18 @@
 		
     )
 
-	(:action start-working
+	(:durative-action start-working
 		:parameters (
 			?m - machine
 		)
-
-		:precondition (and
-			(is-available ?m)
+		:duration 
+            (= ?duration 1)
+			
+		:condition (and
+			(at start (is-available ?m))  
 		)
 		:effect (and
-			(not (is-available ?m))
+			(at end (not (is-available ?m)))
 		)
 	)
 	     
