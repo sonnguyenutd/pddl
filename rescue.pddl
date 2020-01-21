@@ -34,6 +34,18 @@
 		
     )
 
+	(:action start-working
+		:parameters (
+			?m - machine
+		)
+
+		:precondition (and
+			(is-available ?m)
+		)
+		:effect (and
+			(not (is-available ?m))
+		)
+	)
 	     
     (:durative-action load-robot
         :parameters 
@@ -46,9 +58,9 @@
         
         :condition
 	        (and 
+				;(at start (is-available ?truck)) 
 	            (at start (is-at ?robot ?region))
 	            (at start (is-at ?truck ?region)) 
-	            (at start (is-available ?truck)) 
 	            (over all (is-at ?truck ?region))
 	            (over all (not (is-available ?truck))) 
 	            ;; (at start (> (fuel ?truck) 5))
@@ -75,7 +87,7 @@
         
         :condition
 	        (and 
-	        	(at start (is-available ?v)) 
+	        	; (at start (is-available ?v)) 
 	            (at start (is-at ?v ?from)) 
 	            (over all (not (is-available ?v))) 
 	            ;; (at start (> (fuel ?v) (* #t (moving-consumption-rate ?v))))
@@ -105,7 +117,7 @@
         
         :condition
 	        (and 
-	        	(at start (is-available ?v)) 
+	        	;(at start (is-available ?v)) 
 	            (at start (is-at ?v ?from)) 
 	            (over all (not (is-available ?v)))
 	            ;; (at start (> (fuel ?v) (* #t (transport-consumption-rate ?v))))
@@ -153,7 +165,7 @@
         
         :condition
 	        (and
-	        	(at start (is-available ?ambulance))  
+	        	;(at start (is-available ?ambulance))  
 	        	(at start (is-reported ?victim))  
 	            (at start (is-at ?victim ?region)) 
 	            (at start (is-at ?ambulance ?region)) 
@@ -184,7 +196,7 @@
         
         :condition
 	        (and
-	        	(at start (is-available ?robot))
+	        	;(at start (is-available ?robot))
 	        	(at start (not (is-removed ?d))) 
 	        	;; (at start (is-visible ?d))  
 				(at start (< (num-cover ?d) 1)) 
@@ -207,6 +219,28 @@
 	        )
 	)
 
+	(:durative-action report-victim
+        :parameters 
+            (?v - victim
+             ?robot - robot)
+        
+        :duration 
+            (= ?duration 1)
+        
+        :condition
+	        (and
+				(over all (not (is-available ?robot)))
+	        	(at start (not (is-reported ?v))) 
+				(at start (< (num-cover ?v) 1)) 
+	        )
+	            
+        :effect
+	        (and 
+				(at end (is-available ?robot)) 
+	            (at end (is-reported ?v))
+	        )
+	)
+
 
 	(:durative-action move-to
         :parameters 
@@ -218,7 +252,7 @@
         :condition
 	        (and 
 	        	(at start (< (num-cover ?d) 1))  
-	        	(at start (is-available ?robot)) 
+	        	; (at start (is-available ?robot)) 
 	            (over all (not (is-available ?robot))) 
 	            ;; (at start (> (fuel ?robot) (* #t (moving-consumption-rate ?robot))))
 	        )
@@ -249,7 +283,7 @@
         :condition
 	        (and 
 	            (at start (is-at ?truck ?region)) 
-	            (at start (is-available ?truck)) 
+	            ; (at start (is-available ?truck)) 
 	            (over all (is-at ?truck ?region))
 	            (over all (not (is-available ?truck))) 
 	            (at start (> (loaded-seats ?truck) 0))
