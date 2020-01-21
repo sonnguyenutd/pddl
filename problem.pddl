@@ -47,7 +47,7 @@
     (= (distance DR TRU) 20)
 
     (= (distance d1 d2) 3)
-    (= (distance d1 d2) 3)
+    (= (distance d2 d1) 3)
 
     (= (distance d3 d1) 4)
     (= (distance d1 d3) 4)
