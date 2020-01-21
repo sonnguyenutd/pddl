@@ -114,7 +114,6 @@
 	        	(at end (is-available ?v)) 
 	        	(at start (not (is-at ?v ?from)))
 	            (at end (is-at ?v ?to))
-	            (at end (not (is-moving ?v)))
 	            
 				;; (at start (decrease (fuel ?v) (* #t (transport-consumption-rate ?v))))
 	            ;; (increase (total-fuel-used) (* #t (transport-consumption-rate ?v)))
