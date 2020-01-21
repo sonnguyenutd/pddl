@@ -55,6 +55,10 @@
     (= (distance d3 d2) 5)
     (= (distance d2 d3) 5)
 
+    (= (distance UNLOADSTATION d1) 2)
+    (= (distance UNLOADSTATION d2) 2)
+    (= (distance UNLOADSTATION d3) 2)
+
     (is-available truck1)
     (is-available ambulance1)
     (is-available robot1)

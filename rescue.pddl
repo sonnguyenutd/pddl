@@ -7,6 +7,9 @@
 			truck ambulance - vehicle
 			debris victim - staticthing)
 
+	(:constants UNLOADSTATION - location)
+	
+	
 	(:predicates
 	    (is-at ?x - physthing ?l - location)
 	    (is-available ?m - machine)
@@ -234,6 +237,41 @@
 	        )
 	)
 
-	
+	;; Sepecial unloading
+	(:durative-action unload-robot
+        :parameters 
+            (?truck - truck
+             ?region - location)
+        
+        :duration 
+            (= ?duration 5)
+        
+        :condition
+	        (and 
+	            (at start (is-at ?truck ?region)) 
+	            (at start (is-available ?truck)) 
+	            (over all (is-at ?truck ?region))
+	            (over all (not (is-available ?truck))) 
+	            (at start (> (loaded-seats ?truck) 0))
+	        )
+	            
+        :effect
+	        (and 
+	            (at end (is-available ?truck)) 
+	            (at start (decrease (fuel ?truck) 5))
+	            (at end (increase (total-fuel-used) 5))
+	            (at start (assign (loaded-seats ?truck) 0))
+
+	            (at end (forall (?x - robot)
+					(when (and (is-in-vehicle ?x ?truck))
+						(and 
+							(is-at ?x ?region) 
+							(assign (distance ?x UNLOADSTATION) 0)
+							(assign (distance UNLOADSTATION ?x) 0)
+						)
+					)
+				))
+	        )
+	)
 
 )
