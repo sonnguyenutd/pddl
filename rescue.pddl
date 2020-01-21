@@ -84,8 +84,9 @@
 	        	(at end (is-available ?v)) 
 	            (at end (is-at ?v ?to))
 	            ;; (at start (decrease (fuel ?v) (* #t (moving-consumption-rate ?v))))
-				(at start (decrease (fuel ?v) 3))
-	            (at end (increase (total-fuel-used) (* #t (moving-consumption-rate ?v))))
+	            ;; (at end (increase (total-fuel-used) (* #t (moving-consumption-rate ?v))))
+				(at start (decrease (fuel ?v) 10))
+				(at end (increase (total-fuel-used) 10))
 	            ;; (at start (decrease (fuel ?v) (* (moving-consumption-rate ?v) (distance ?from ?to))))
 	            ;; (increase (total-fuel-used) (* (moving-consumption-rate ?v) (distance ?from ?to)))
 	        )
@@ -114,9 +115,13 @@
 	        	(at start (not (is-at ?v ?from)))
 	            (at end (is-at ?v ?to))
 	            (at end (not (is-moving ?v)))
-	            (at start (decrease (fuel ?v) (* #t (transport-consumption-rate ?v))))
-	            (increase (total-fuel-used) (* #t (transport-consumption-rate ?v)))
 	            
+				;; (at start (decrease (fuel ?v) (* #t (transport-consumption-rate ?v))))
+	            ;; (increase (total-fuel-used) (* #t (transport-consumption-rate ?v)))
+	            
+				(at start (decrease (fuel ?v) 20))
+				(at end (increase (total-fuel-used) 20))
+				
 	            ;; (at start (decrease (fuel ?v) (* (transport-consumption-rate ?v) (distance ?from ?to))))
 	            ;; (increase (total-fuel-used) (* (transport-consumption-rate ?v) (distance ?from ?to)))
 	            
@@ -220,8 +225,10 @@
 	        (and 
 	        	(at end (is-available ?robot)) 
 	            (at end (is-closed-to ?robot ?d))
-	            (at start (decrease (fuel ?robot) (* #t (moving-consumption-rate ?robot))))
-	            (increase (total-fuel-used) (* #t (moving-consumption-rate ?robot)))
+	            ;;(at start (decrease (fuel ?robot) (* #t (moving-consumption-rate ?robot))))
+	            ;;(increase (total-fuel-used) (* #t (moving-consumption-rate ?robot)))
+				(at start (decrease (fuel ?robot) 5))
+				(at end (increase (total-fuel-used) 5))
 	            (at end (forall (?x - staticthing)
 					 (and (assign (distance ?robot ?x) (distance ?d ?x)))
 				))
