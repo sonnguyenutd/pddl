@@ -165,7 +165,7 @@
 	        	(at end (is-available ?ambulance)) 
 	            (at end (is-in-vehicle ?robot ?ambulance))
 	            (at start (decrease (fuel ?ambulance) 5))
-	            (at end ((increase (total-fuel-used) 5)))
+	            (at end (increase (total-fuel-used) 5))
 	            (at start (increase (loaded-seats ?ambulance) 1))
 	        )
 	)
@@ -195,7 +195,7 @@
 	        	(at end (is-available ?robot)) 
 	        	(at start (is-removed ?d))  
 	            (at start (decrease (fuel ?robot) 3))
-	            (at end ((increase (total-fuel-used) 3))
+	            (at end (increase (total-fuel-used) 3))
 
 	            (at end (forall (?x - staticthing)
 					(when (and (is-covered-by ?d ?x))
@@ -256,7 +256,7 @@
 	        (and 
 	            (at end (is-available ?truck)) 
 	            (at start (decrease (fuel ?truck) 5))
-	            (at end ((increase (total-fuel-used) 5))
+	            (at end (increase (total-fuel-used) 5))
 	            (at start (assign (loaded-seats ?truck) 0))
 
 	            (at end (forall (?x - robot)
