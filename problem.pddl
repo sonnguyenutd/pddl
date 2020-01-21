@@ -28,6 +28,12 @@
     (is-covered-by d2 v2)
     (is-covered-by d2 d1)
 
+    (= (num-cover d1) 1)
+    (= (num-cover d2) 0)
+    (= (num-cover d3) 0)
+    (= (num-cover v1) 2)
+    (= (num-cover v2) 2)
+
     (= (distance TRU ROB) 10)
     (= (distance ROB TRU) 10)
 

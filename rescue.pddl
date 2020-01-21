@@ -1,5 +1,5 @@
 (define (domain rescue)
-    (:requirements :typing :durative-actions :fluents :duration-inequalities :adl :derived-predicates :timed-initial-literals)
+    (:requirements :typing :durative-actions :fluents :duration-inequalities :adl :timed-initial-literals)
 
     (:types location physthing - object
 			staticthing machine - physthing
@@ -10,29 +10,25 @@
 	(:predicates
 	    (is-at ?x - physthing ?l - location)
 	    (is-available ?m - machine)
-        (is-visible ?s - staticthing)                       
+        ;; (is-visible ?s - staticthing)                       
         (is-covered-by ?s1 - staticthing ?s2 - staticthing)
         (is-reported ?v - victim)
         (is-closed-to ?r - robot ?d - debris)
         (is-removed ?d - debris)
         (is-in-vehicle ?x - physthing ?v - vehicle)
 	)
-
-	(:derived (is-visible ?s - staticthing)
-	    (and
-	    	(not (exists (?x - staticthing) (is-covered-by x s)))  
-	    )
-	)
     
     (:functions
         (loaded-seats ?v - vehicle)
         (seats ?v - vehicle)
+		(num-cover ?x - staticthing)
         (distance ?o1 - object ?o2 - object)
         (fuel ?m - machine)
         (speed ?m - machine)
         (transport-consumption-rate ?v - vehicle)
         (moving-consumption-rate ?m - machine)
    		(total-fuel-used)
+		
     )
 
 	     
@@ -182,7 +178,8 @@
 	        (and
 	        	(at start (is-available ?robot))
 	        	(at start (not (is-removed ?d))) 
-	        	(at start (is-visible ?d))  
+	        	;; (at start (is-visible ?d))  
+				(at start (< (num-cover ?d) 1)) 
 	            (at start (is-closed-to ?robot ?d)) 
 	            (over all (not (is-available ?robot)))
 	            (at start (> (fuel ?robot) 3))
@@ -197,7 +194,7 @@
 
 	            (at end (forall (?x - staticthing)
 					(when (and (is-covered-by ?d ?x))
-						(and (not (is-covered-by ?d ?x))))
+						(and (not (is-covered-by ?d ?x)) (decrease (num-cover ?x) 1)))
 				))
 	        )
 	)
@@ -212,7 +209,7 @@
         
         :condition
 	        (and 
-	        	(at start (is-visible ?d))  
+	        	(at start (< (num-cover ?d) 1))  
 	        	(at start (is-available ?robot)) 
 	            (over all (not (is-available ?robot))) 
 	            ;; (at start (> (fuel ?robot) (* #t (moving-consumption-rate ?robot))))
