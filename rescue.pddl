@@ -84,7 +84,9 @@
         :effect
 	        (and 
 	        	;(at end (is-available ?v)) 
+				(at start (not (is-at ?v ?from)))
 	            (at end (is-at ?v ?to))
+
 	            ;; (at start (decrease (fuel ?v) (* #t (moving-consumption-rate ?v))))
 	            ;; (at end (increase (total-fuel-used) (* #t (moving-consumption-rate ?v))))
 				(at start (decrease (fuel ?v) 10))
@@ -127,7 +129,7 @@
 	            ;; (increase (total-fuel-used) (* (transport-consumption-rate ?v) (distance ?from ?to)))
 	            
 	            (at start (forall (?x - physthing)
-					(when (and (is-in-vehicle ?x ?v))
+					(when (and (is-on-vehicle ?x ?v))
 						(and (not (is-at ?x ?from))))
 				))
 				
