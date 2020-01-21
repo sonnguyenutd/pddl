@@ -84,7 +84,7 @@
 	        	(at end (is-available ?v)) 
 	            (at end (is-at ?v ?to))
 	            (at start (decrease (fuel ?v) (* #t (moving-consumption-rate ?v))))
-	            (increase (total-fuel-used) (* #t (moving-consumption-rate ?v)))
+	            (at end (increase (total-fuel-used) (* #t (moving-consumption-rate ?v))))
 	            ;; (at start (decrease (fuel ?v) (* (moving-consumption-rate ?v) (distance ?from ?to))))
 	            ;; (increase (total-fuel-used) (* (moving-consumption-rate ?v) (distance ?from ?to)))
 	        )
