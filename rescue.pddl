@@ -165,7 +165,7 @@
 	        	(at end (is-available ?ambulance)) 
 	            (at end (is-in-vehicle ?robot ?ambulance))
 	            (at start (decrease (fuel ?ambulance) 5))
-	            (at end ((increase (total-fuel-used) 5))
+	            (at end ((increase (total-fuel-used) 5)))
 	            (at start (increase (loaded-seats ?ambulance) 1))
 	        )
 	)
