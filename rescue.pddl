@@ -57,7 +57,7 @@
         :effect
 	        (and 
 	            (at end (is-in-vehicle ?robot ?truck))
-	            (at end (is-available ?truck)) 
+	            ;(at end (is-available ?truck)) 
 	            (at start (decrease (fuel ?truck) 5))
 	            (at start (increase (loaded-seats ?truck) 1))
 	            (at end (increase (total-fuel-used) 5))
@@ -83,7 +83,7 @@
 	            
         :effect
 	        (and 
-	        	(at end (is-available ?v)) 
+	        	;(at end (is-available ?v)) 
 	            (at end (is-at ?v ?to))
 	            ;; (at start (decrease (fuel ?v) (* #t (moving-consumption-rate ?v))))
 	            ;; (at end (increase (total-fuel-used) (* #t (moving-consumption-rate ?v))))
@@ -113,7 +113,7 @@
 	            
         :effect
 	        (and 
-	        	(at end (is-available ?v)) 
+	        	; (at end (is-available ?v)) 
 	        	(at start (not (is-at ?v ?from)))
 	            (at end (is-at ?v ?to))
 	            
@@ -164,7 +164,7 @@
 	            
         :effect
 	        (and 
-	        	(at end (is-available ?ambulance)) 
+	        	;(at end (is-available ?ambulance)) 
 	            (at end (is-in-vehicle ?victim ?ambulance))
 	            (at start (decrease (fuel ?ambulance) 5))
 	            (at end (increase (total-fuel-used) 5))
@@ -195,7 +195,7 @@
 	            
         :effect
 	        (and 
-	        	(at end (is-available ?robot)) 
+	        	;(at end (is-available ?robot)) 
 	        	(at start (is-removed ?d))  
 	            (at start (decrease (fuel ?robot) 3))
 	            (at end (increase (total-fuel-used) 3))
@@ -224,7 +224,7 @@
 	            
         :effect
 	        (and 
-				(at end (is-available ?robot)) 
+				;(at end (is-available ?robot)) 
 	            (at end (is-reported ?v))
 	        )
 	)
@@ -247,7 +247,7 @@
 	            
         :effect
 	        (and 
-	        	(at end (is-available ?robot)) 
+	        	; (at end (is-available ?robot)) 
 	            (at end (is-closed-to ?robot ?d))
 	            ;;(at start (decrease (fuel ?robot) (* #t (moving-consumption-rate ?robot))))
 	            ;;(increase (total-fuel-used) (* #t (moving-consumption-rate ?robot)))
@@ -279,7 +279,7 @@
 	            
         :effect
 	        (and 
-	            (at end (is-available ?truck)) 
+	            ;(at end (is-available ?truck)) 
 	            (at start (decrease (fuel ?truck) 5))
 	            (at end (increase (total-fuel-used) 5))
 	            (at start (assign (loaded-seats ?truck) 0))
