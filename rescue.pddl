@@ -157,7 +157,7 @@
 	            (over all (is-at ?ambulance ?region)) 
 	            (over all (not (is-available ?ambulance)))
 	            ;; (at start (> (fuel ?ambulance) 5))
-	            (at start (> (seats ?truck) (loaded-seats ?ambulance)))
+	            (at start (> (seats ?ambulance) (loaded-seats ?ambulance)))
 	        )
 	            
         :effect
