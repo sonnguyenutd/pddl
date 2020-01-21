@@ -169,7 +169,7 @@
 	        	(at start (not (is-loaded ?ambulance)))
                 (at start 
 			(forall (?x - victim)
-				(is-reported ?x)
+				(and (is-at ?x ?region) (is-reported ?x))
                 	)
 		)
 	            (at start (is-at ?ambulance ?region)) 

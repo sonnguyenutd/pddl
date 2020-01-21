@@ -23,8 +23,8 @@
     (= (size d) 50)
 
     (= (cleaning-performance robot1) 3)
-    (= (cleaning-performance robot2) 4)
-    (= (cleaning-performance robot3) 5)
+    (= (cleaning-performance robot1) 4)
+    (= (cleaning-performance robot1) 5)
 
     (= (distance TRU ROB) 10)
     (= (distance ROB TRU) 10)
