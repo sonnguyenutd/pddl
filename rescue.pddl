@@ -33,21 +33,6 @@
    		(total-fuel-used)
 		
     )
-
-	(:durative-action start-working
-		:parameters (
-			?m - machine
-		)
-		:duration 
-            (= ?duration 1)
-			
-		:condition (and
-			(at start (is-available ?m))  
-		)
-		:effect (and
-			(at end (not (is-available ?m)))
-		)
-	)
 	     
     (:durative-action load-robot
         :parameters 
@@ -64,7 +49,7 @@
 	            (at start (is-at ?robot ?region))
 	            (at start (is-at ?truck ?region)) 
 	            (over all (is-at ?truck ?region))
-	            (over all (not (is-available ?truck))) 
+	            ; (over all (not (is-available ?truck))) 
 	            ;; (at start (> (fuel ?truck) 5))
 	            (at start (> (seats ?truck) (loaded-seats ?truck)))
 	        )
@@ -91,7 +76,7 @@
 	        (and 
 	        	; (at start (is-available ?v)) 
 	            (at start (is-at ?v ?from)) 
-	            (over all (not (is-available ?v))) 
+	            ; (over all (not (is-available ?v))) 
 	            ;; (at start (> (fuel ?v) (* #t (moving-consumption-rate ?v))))
 	            ;; (at start (> (fuel ?v) (* (moving-consumption-rate ?v) (distance ?from ?to))))
 	        )
@@ -121,7 +106,7 @@
 	        (and 
 	        	;(at start (is-available ?v)) 
 	            (at start (is-at ?v ?from)) 
-	            (over all (not (is-available ?v)))
+	            ;(over all (not (is-available ?v)))
 	            ;; (at start (> (fuel ?v) (* #t (transport-consumption-rate ?v))))
 	            ;; (at start (> (fuel ?v) (* (transport-consumption-rate ?v) (distance ?from ?to))))
 	        )
@@ -168,11 +153,11 @@
         :condition
 	        (and
 	        	;(at start (is-available ?ambulance))  
+				;(over all (not (is-available ?ambulance)))
 	        	(at start (is-reported ?victim))  
 	            (at start (is-at ?victim ?region)) 
 	            (at start (is-at ?ambulance ?region)) 
 	            (over all (is-at ?ambulance ?region)) 
-	            (over all (not (is-available ?ambulance)))
 	            ;; (at start (> (fuel ?ambulance) 5))
 	            (at start (> (seats ?ambulance) (loaded-seats ?ambulance)))
 	        )
@@ -199,11 +184,12 @@
         :condition
 	        (and
 	        	;(at start (is-available ?robot))
+				;(over all (not (is-available ?robot)))
 	        	(at start (not (is-removed ?d))) 
 	        	;; (at start (is-visible ?d))  
 				(at start (< (num-cover ?d) 1)) 
 	            (at start (is-closed-to ?robot ?d)) 
-	            (over all (not (is-available ?robot)))
+	            
 	            (at start (> (fuel ?robot) 3))
 	        )
 	            
@@ -231,7 +217,7 @@
         
         :condition
 	        (and
-				(over all (not (is-available ?robot)))
+				;(over all (not (is-available ?robot)))
 	        	(at start (not (is-reported ?v))) 
 				(at start (< (num-cover ?v) 1)) 
 	        )
@@ -255,7 +241,7 @@
 	        (and 
 	        	(at start (< (num-cover ?d) 1))  
 	        	; (at start (is-available ?robot)) 
-	            (over all (not (is-available ?robot))) 
+	            ; (over all (not (is-available ?robot))) 
 	            ;; (at start (> (fuel ?robot) (* #t (moving-consumption-rate ?robot))))
 	        )
 	            
@@ -284,10 +270,10 @@
         
         :condition
 	        (and 
-	            (at start (is-at ?truck ?region)) 
 	            ; (at start (is-available ?truck)) 
+				;(over all (not (is-available ?truck))) 
+	            (at start (is-at ?truck ?region)) 
 	            (over all (is-at ?truck ?region))
-	            (over all (not (is-available ?truck))) 
 	            (at start (> (loaded-seats ?truck) 0))
 	        )
 	            
