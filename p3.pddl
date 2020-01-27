@@ -4,14 +4,14 @@
             ambulance1 - ambulance
             robot1 robot2 robot3 - robot
             DR ROB TRU HOS - location
-            v1 v2 - victim
+            v1 v2 v3 - victim
             d - debris
   )
   (:init
     (= (loaded-seats truck1) 0)
     (= (loaded-seats ambulance1) 0)
 
-    (= (seats ambulance1) 1) 
+    (= (seats ambulance1) 2) 
     (= (seats truck1) 2)  
 
     (is-at truck1 TRU)
@@ -24,6 +24,8 @@
 
     (is-at v1 DR)
     (is-at v2 DR)
+    (is-at v3 DR)
+
     (is-at d DR)
 
     (= (size d) 50)
