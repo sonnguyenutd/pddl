@@ -105,7 +105,7 @@
         :effect
 	        (and 
 	            (at end (is-at ?robot ?region))
-				(at start (decrease (fuel ?v) 20))
+				(at start (decrease (fuel ?truck) 20))
 				(at end (increase (total-fuel-used) 20))
 	        )
     )
