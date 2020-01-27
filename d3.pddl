@@ -53,6 +53,7 @@
         :effect
 	        (and 
 	            (at end (is-on-vehicle ?robot ?truck))
+                (at end (not (is-at ?robot ?region)))
 	            (at start (decrease (fuel ?truck) 5))
 	            (at start (increase (loaded-seats ?truck) 1))
 	            (at end (increase (total-fuel-used) 5))
@@ -85,37 +86,27 @@
 	)
 
 
-	(:durative-action transport-robot
+	(:durative-action unload-robot
         :parameters 
-            (?v - vehicle
-             ?from ?to - location)
+            (
+                ?truck - truck
+                ?region - location
+                ?robot - robot
+            )
         
-        :duration (= ?duration (/ (distance ?from ?to) (speed ?v)))
+        :duration (= ?duration 3)
         
         :condition
 	        (and 
-	        	(at start (is-loaded ?v))
-	            (at start (is-at ?v ?from)) 
-	            (over all (is-loaded ?v))
-                (at start 
-					(forall (?x - robot)
-			        	(is-on-vehicle ?x ?v)
-                	)
-				)
+	        	(at start (is-on-vehicle ?robot ?truck))
+	            (at start (is-at ?truck ?region)) 
 	        )
 	            
         :effect
 	        (and 
-                (at end (is-loaded ?v))
-	        	(at start (not (is-at ?v ?from)))
-	            (at end (is-at ?v ?to))
+	            (at end (is-at ?robot ?region))
 				(at start (decrease (fuel ?v) 20))
 				(at end (increase (total-fuel-used) 20))
-	            (at end 
-					(forall (?x - robot)
-				    	(and (is-at ?x ?to) (not (is-at ?x ?from)))
-			    	)
-				)
 	        )
     )
 
