@@ -43,9 +43,11 @@
         :condition
 	        (and 
                 (at start (not (is-loaded ?truck)))
-                (at start (forall (?x - robot)
-			(is-at ?x ?region)
-                ))
+                (at start 
+					(forall (?x - robot)
+						(is-at ?x ?region)
+                	)
+				)
 	            (at start (is-at ?truck ?region)) 
 	            (over all (is-at ?truck ?region))
 	            (at start (> (fuel ?truck) 5))
@@ -54,9 +56,11 @@
         :effect
 	        (and 
                 (at start (is-loaded ?truck))
-                (at end (forall (?x - robot)
-			(is-on-vehicle ?x ?truck)
-                ))
+                (at end 
+					(forall (?x - robot)
+						(is-on-vehicle ?x ?truck)
+                	)
+				)
 	            (at start (decrease (fuel ?truck) 5))
 	            (at end (increase (total-fuel-used) 5))
 	        )
@@ -102,9 +106,11 @@
 	        	(at start (is-loaded ?v))
 	            (at start (is-at ?v ?from)) 
 	            (over all (is-loaded ?v))
-                (at start (forall (?x - robot)
-			        (is-on-vehicle ?x ?v)
-                ))
+                (at start 
+					(forall (?x - robot)
+			        	(is-on-vehicle ?x ?v)
+                	)
+				)
 	        )
 	            
         :effect
@@ -114,9 +120,11 @@
 	            (at end (is-at ?v ?to))
 				(at start (decrease (fuel ?v) 20))
 				(at end (increase (total-fuel-used) 20))
-	            (at end (forall (?x - robot)
-				    (and (is-at ?x ?to) (not (is-at ?x ?from)))
-			    ))
+	            (at end 
+					(forall (?x - robot)
+				    	(and (is-at ?x ?to) (not (is-at ?x ?from)))
+			    	)
+				)
 	        )
     )
 
@@ -132,9 +140,11 @@
 	        	(at start (is-loaded ?v))
 	            (at start (is-at ?v ?from)) 
 	            (over all (is-loaded ?v))
-                (at start (forall (?x - victim)
-			        (is-on-vehicle ?x ?v)
-                ))
+                (at start 
+					(forall (?x - victim)
+			        	(is-on-vehicle ?x ?v)
+                	)
+				)
 	        )
 	            
         :effect
@@ -144,9 +154,11 @@
 	            (at end (is-at ?v ?to))
 				(at start (decrease (fuel ?v) 50))
 				(at end (increase (total-fuel-used) 50))
-	            (at end (forall (?x - victim)
-			        (and (is-at ?x ?to) (not (is-at ?x ?from)))
-			    ))
+	            (at end 
+					(forall (?x - victim)
+			        	(and (is-at ?x ?to) (not (is-at ?x ?from)))
+			    	)
+				)
 
 	        )
 	)
@@ -164,9 +176,11 @@
         :condition
 	        (and
 	        	(at start (not (is-loaded ?ambulance)))
-                (at start (forall (?x - victim)
-				    (is-reported ?x)
-                ))
+                (at start 
+					(forall (?x - victim)
+				    	(is-reported ?x)
+                	)
+				)
 	            (at start (is-at ?ambulance ?region)) 
 	            (over all (is-at ?ambulance ?region))
 	            (at start (> (fuel ?ambulance) 10))
@@ -175,9 +189,11 @@
         :effect
 	        (and 
 	            (at start (is-loaded ?ambulance))
-                (at end (forall (?x - victim)
-			        (is-on-vehicle ?x ?ambulance)
-                ))
+                (at end 
+					(forall (?x - victim)
+			        	(is-on-vehicle ?x ?ambulance)
+                	)
+				)
 	            (at start (decrease (fuel ?ambulance) 10))
 	            (at end (increase (total-fuel-used) 10))
 	        )
