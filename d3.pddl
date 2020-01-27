@@ -52,7 +52,7 @@
 	            
         :effect
 	        (and 
-	            (at end (is-in-vehicle ?robot ?truck))
+	            (at end (is-on-vehicle ?robot ?truck))
 	            (at start (decrease (fuel ?truck) 5))
 	            (at start (increase (loaded-seats ?truck) 1))
 	            (at end (increase (total-fuel-used) 5))
