@@ -32,6 +32,29 @@
         (cleaning-performance ?r - robot)
    		(total-fuel-used)
     )
+
+	(:durative-action move
+        :parameters 
+            (?v - vehicle
+             ?from ?to - location)
+        
+        :duration (= ?duration (/ (distance ?from ?to) (speed ?v)))
+        
+        :condition
+	        (and 
+	        	(at start (< (loaded-seats ?v) 1) 
+	            (at start (is-at ?v ?from))  
+				(over all (< (loaded-seats ?v) 1) 
+	        )
+	            
+        :effect
+	        (and 
+				(at start (not (is-at ?v ?from)))
+	            (at end (is-at ?v ?to))
+				(at start (decrease (fuel ?v) 10))
+				(at end (increase (total-fuel-used) 10))
+	        )
+	)
 	     
     (:durative-action load-robot
         :parameters 
@@ -60,32 +83,6 @@
 	        )
 	)
 
-
-    (:durative-action move
-        :parameters 
-            (?v - vehicle
-             ?from ?to - location)
-        
-        :duration (= ?duration (/ (distance ?from ?to) (speed ?v)))
-        
-        :condition
-	        (and 
-	        	(at start (not (is-loaded ?v))) 
-	            (at start (is-at ?v ?from)) 
-	            (over all (not (is-loaded ?v))) 
-	        )
-	            
-        :effect
-	        (and 
-                (at end (not (is-loaded ?v)))
-				(at start (not (is-at ?v ?from)))
-	            (at end (is-at ?v ?to))
-				(at start (decrease (fuel ?v) 10))
-				(at end (increase (total-fuel-used) 10))
-	        )
-	)
-
-
 	(:durative-action unload-robot
         :parameters 
             (
@@ -104,13 +101,41 @@
 	            
         :effect
 	        (and 
-	            (at end (is-at ?robot ?region))
-				(at start (decrease (fuel ?truck) 20))
+				(at start (not (is-on-vehicle ?robot ?truck)))
+	            (at start (decrease (seats ?truck) 1))
+				(at end (is-at ?robot ?region))
+				(at start (decrease (fuel ?truck) 10))
+				(at end (increase (total-fuel-used) 10))
+	        )
+    )
+
+	(:durative-action unload-victim
+		:duration 
+            (= ?duration 15)
+        :parameters 
+            (
+                ?ambulance - ambulance
+             	?region - location
+				?x - victim
+            )
+
+        :condition
+	        (and 
+	        	(at start (is-on-vehicle ?x ?ambulance))
+	            (at start (is-at ?ambulance ?region))
+	        )
+	            
+        :effect
+	        (and 
+				(at start (not (is-on-vehicle ?x ?ambulance)))
+	            (at end (is-at ?x ?region))
+				(at start (decrease (seats ?ambulance) 1))
+				(at start (decrease (fuel ?ambulance) 20))
 				(at end (increase (total-fuel-used) 20))
 	        )
     )
 
-    (:durative-action transport-victim
+    (:durative-action transport
         :parameters 
             (?v - vehicle
              ?from ?to - location)
@@ -119,50 +144,36 @@
         
         :condition
 	        (and 
-	        	(at start (is-loaded ?v))
+	        	(at start (> (loaded-seats ?v) 0))
+				(over all (> (loaded-seats ?v) 0))
 	            (at start (is-at ?v ?from)) 
-	            (over all (is-loaded ?v))
-                (at start 
-					(forall (?x - victim)
-			        	(is-on-vehicle ?x ?v)
-                	)
-				)
 	        )
 	            
         :effect
 	        (and 
-                (at end (is-loaded ?v))
+                (at end (> (loaded-seats ?v) 0))
 	        	(at start (not (is-at ?v ?from)))
 	            (at end (is-at ?v ?to))
 				(at start (decrease (fuel ?v) 50))
 				(at end (increase (total-fuel-used) 50))
-	            (at end 
-					(forall (?x - victim)
-			        	(and (is-at ?x ?to) (not (is-at ?x ?from)))
-			    	)
-				)
-
 	        )
 	)
 
-
-
 	(:durative-action load-victim
         :parameters 
-            (?ambulance - ambulance
-             ?region - location)
+            (
+				?ambulance - ambulance
+             	?region - location
+				?x - victim
+			)
         
         :duration 
-            (= ?duration 15)
+            (= ?duration 20)
         
         :condition
 	        (and
-	        	(at start (not (is-loaded ?ambulance)))
-                (at start 
-					(forall (?x - victim)
-				    	(is-reported ?x)
-                	)
-				)
+	        	(at start (> (seats ?ambulance) (loaded-seats ?ambulance)))
+                (at start (is-reported ?x))
 	            (at start (is-at ?ambulance ?region)) 
 	            (over all (is-at ?ambulance ?region))
 	            (at start (> (fuel ?ambulance) 10))
@@ -170,12 +181,9 @@
 	            
         :effect
 	        (and 
-	            (at start (is-loaded ?ambulance))
-                (at end 
-					(forall (?x - victim)
-			        	(is-on-vehicle ?x ?ambulance)
-                	)
-				)
+				(at start (increase (loaded-seats ?ambulance) 1))
+                (at end (is-on-vehicle ?x ?ambulance))
+				(at end (not (is-at ?x ?region)))
 	            (at start (decrease (fuel ?ambulance) 10))
 	            (at end (increase (total-fuel-used) 10))
 	        )
@@ -219,8 +227,7 @@
         :duration 
             (= ?duration 2)
         
-        :condition
-	        (and
+        :condition (and
                 (at start (is-at ?robot ?region))
                 (at start (is-at ?d ?region))
                 (at start (is-at ?v ?region))
