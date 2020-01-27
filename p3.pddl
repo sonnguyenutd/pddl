@@ -11,7 +11,7 @@
     (= (loaded-seats truck1) 0)
     (= (loaded-seats ambulance1) 0)
 
-    (= (seats ambulance1) 2) 
+    (= (seats ambulance1) 1) 
     (= (seats truck1) 2)  
 
     (is-at truck1 TRU)
