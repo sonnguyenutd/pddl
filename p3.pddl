@@ -8,6 +8,12 @@
             d - debris
   )
   (:init
+    (= (loaded-seats truck1) 0)
+    (= (loaded-seats ambulance1) 0)
+
+    (= (seats ambulance1) 2) 
+    (= (seats truck1) 3)  
+    
     (is-at truck1 TRU)
 
     (is-at ambulance1 HOS)
