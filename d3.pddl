@@ -35,9 +35,10 @@
 	     
     (:durative-action load-robot
         :parameters 
-            (?truck - truck
-            ?region - location
-            ?robot - robot 
+            (
+                ?truck - truck
+                ?region - location
+                ?robot - robot 
             )
         :duration 
             (= ?duration 5)
@@ -78,8 +79,6 @@
 	        	(at start (not (is-loaded ?v))) 
 	            (at start (is-at ?v ?from)) 
 	            (over all (not (is-loaded ?v))) 
-	            ;; (at start (> (fuel ?v) (* #t (moving-consumption-rate ?v))))
-	            ;; (at start (> (fuel ?v) (* (moving-consumption-rate ?v) (distance ?from ?to))))
 	        )
 	            
         :effect
