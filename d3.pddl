@@ -44,7 +44,7 @@
 	        (and 
 	        	(at start (< (loaded-seats ?v) 1)) 
 	            (at start (is-at ?v ?from))  
-				(over all (< (loaded-seats ?v) 1) 
+				(over all (< (loaded-seats ?v) 1)) 
 	        )
 	            
         :effect
