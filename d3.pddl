@@ -110,15 +110,13 @@
     )
 
 	(:durative-action unload-victim
-		:duration 
-            (= ?duration 15)
         :parameters 
             (
                 ?ambulance - ambulance
              	?region - location
 				?x - victim
             )
-
+		:duration (= ?duration 15)
         :condition
 	        (and 
 	        	(at start (is-on-vehicle ?x ?ambulance))
