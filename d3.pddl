@@ -149,7 +149,6 @@
 	            
         :effect
 	        (and 
-                (at end (> (loaded-seats ?v) 0))
 	        	(at start (not (is-at ?v ?from)))
 	            (at end (is-at ?v ?to))
 				(at start (decrease (fuel ?v) 50))
