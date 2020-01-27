@@ -61,8 +61,6 @@
   (:goal
     (and
       (forall (?v - victim) (is-at ?v HOS))
-      ;; (is-at truck1 DR)
-      ;; (is-at ambulance1 DR)
     )
   )
   

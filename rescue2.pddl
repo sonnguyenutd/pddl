@@ -103,23 +103,21 @@
 	            (at start (is-at ?v ?from)) 
 	            (over all (is-loaded ?v))
                 (at start (forall (?x - robot)
-			(is-on-vehicle ?x ?v)
+			        (is-on-vehicle ?x ?v)
                 ))
 	        )
 	            
         :effect
 	        (and 
-                	(at end (is-loaded ?v))
+                (at end (is-loaded ?v))
 	        	(at start (not (is-at ?v ?from)))
-	            	(at end (is-at ?v ?to))
+	            (at end (is-at ?v ?to))
 				(at start (decrease (fuel ?v) 20))
 				(at end (increase (total-fuel-used) 20))
-	            	(at end (forall (?x - robot)
-				(and (is-at ?x ?to) (not (is-at ?x ?from)))
-			)
-                )
-
-	)
+	            (at end (forall (?x - robot)
+				    (and (is-at ?x ?to) (not (is-at ?x ?from)))
+			    ))
+	        )
     )
 
     (:durative-action transport-victim
@@ -135,7 +133,7 @@
 	            (at start (is-at ?v ?from)) 
 	            (over all (is-loaded ?v))
                 (at start (forall (?x - victim)
-			(is-on-vehicle ?x ?v)
+			        (is-on-vehicle ?x ?v)
                 ))
 	        )
 	            
@@ -147,9 +145,8 @@
 				(at start (decrease (fuel ?v) 50))
 				(at end (increase (total-fuel-used) 50))
 	            (at end (forall (?x - victim)
-			(and (is-at ?x ?to) (not (is-at ?x ?from)))
-			)
-                )
+			        (and (is-at ?x ?to) (not (is-at ?x ?from)))
+			    ))
 
 	        )
 	)
@@ -167,11 +164,9 @@
         :condition
 	        (and
 	        	(at start (not (is-loaded ?ambulance)))
-                (at start 
-			(forall (?x - victim)
-				(is-reported ?x)
-                	)
-		)
+                (at start (forall (?x - victim)
+				    (is-reported ?x)
+                ))
 	            (at start (is-at ?ambulance ?region)) 
 	            (over all (is-at ?ambulance ?region))
 	            (at start (> (fuel ?ambulance) 10))
@@ -181,7 +176,7 @@
 	        (and 
 	            (at start (is-loaded ?ambulance))
                 (at end (forall (?x - victim)
-			(is-on-vehicle ?x ?ambulance)
+			        (is-on-vehicle ?x ?ambulance)
                 ))
 	            (at start (decrease (fuel ?ambulance) 10))
 	            (at end (increase (total-fuel-used) 10))
