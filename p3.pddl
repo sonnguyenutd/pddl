@@ -4,7 +4,7 @@
             ambulance1 - ambulance
             robot1 robot2 robot3 - robot
             DR ROB TRU HOS - location
-            v1 v2 v3 - victim
+            v1 v2 - victim
             d - debris
   )
   (:init
@@ -24,8 +24,6 @@
 
     (is-at v1 DR)
     (is-at v2 DR)
-    (is-at v3 DR)
-
     (is-at d DR)
 
     (= (size d) 50)
