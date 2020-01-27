@@ -35,33 +35,26 @@
 	     
     (:durative-action load-robot
         :parameters 
-            (
-                ?truck - truck
-                ?region - location
-                ?robot - robot 
-            )
+            (?robot - robot
+             ?truck - truck
+             ?region - location)
+        
         :duration 
             (= ?duration 5)
         
         :condition
 	        (and 
-                (at start (not (is-loaded ?truck)))
-                (at start (> (seats ?truck) (loaded-seats ?truck)))
+	            (at start (is-at ?robot ?region))
 	            (at start (is-at ?truck ?region)) 
 	            (over all (is-at ?truck ?region))
-
-                (at start (is-at ?robot ?region)) 
-	            (over all (is-at ?robot ?region))
-
-	            (at start (> (fuel ?truck) 5))
+	            (at start (> (seats ?truck) (loaded-seats ?truck)))
 	        )
 	            
         :effect
 	        (and 
-                (at start (is-loaded ?truck))
-                (at end (is-on-vehicle ?robot ?truck))
-                (at start (increase (loaded-seats ?truck) 1))
+	            (at end (is-in-vehicle ?robot ?truck))
 	            (at start (decrease (fuel ?truck) 5))
+	            (at start (increase (loaded-seats ?truck) 1))
 	            (at end (increase (total-fuel-used) 5))
 	        )
 	)
