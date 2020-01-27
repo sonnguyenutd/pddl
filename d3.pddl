@@ -170,7 +170,8 @@
         :condition
 	        (and
 	        	(at start (> (seats ?ambulance) (loaded-seats ?ambulance)))
-                (at start (is-reported ?x))
+                (at start (is-at ?x ?region))
+				(at start (is-reported ?x))
 	            (at start (is-at ?ambulance ?region)) 
 	            (over all (is-at ?ambulance ?region))
 	            (at start (> (fuel ?ambulance) 10))
