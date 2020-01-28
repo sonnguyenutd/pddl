@@ -129,8 +129,8 @@
 	        (and 
 				(at start (decrease (loaded-seats ?ambulance) 1))
 				(at start (not (is-on-vehicle ?x ?ambulance)))
-	            (at end (is-at ?x ?region))
-				
+	            
+				(at end (is-at ?x ?region))
 				(at start (decrease (fuel ?ambulance) 20))
 				(at end (increase (total-fuel-used) 20))
 	        )
@@ -172,19 +172,23 @@
         
         :condition
 	        (and
-	        	(at start (> (seats ?ambulance) (loaded-seats ?ambulance)))
-                (at start (is-at ?x ?region))
 				(at start (is-reported ?x))
+
+                (at start (is-at ?x ?region))
 	            (at start (is-at ?ambulance ?region)) 
 	            (over all (is-at ?ambulance ?region))
+				(at start (> (seats ?ambulance) (loaded-seats ?ambulance)))
+
 	            (at start (> (fuel ?ambulance) 10))
 	        )
 	            
         :effect
 	        (and 
 				(at start (increase (loaded-seats ?ambulance) 1))
+
                 (at end (is-on-vehicle ?x ?ambulance))
 				(at end (not (is-at ?x ?region)))
+
 	            (at start (decrease (fuel ?ambulance) 10))
 	            (at end (increase (total-fuel-used) 10))
 	        )
