@@ -209,7 +209,7 @@
 	        (and
 	        	(at start (is-at ?robot ?region))
                 (at start (is-at ?d ?region))
-                (at start (> (size ?d) 0))
+                ;(at start (> (size ?d) 0))
 	            (at start (> (fuel ?robot) 5))
 	        )
 	            
