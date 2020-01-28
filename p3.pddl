@@ -15,7 +15,6 @@
     (= (seats truck1) 3)  
 
     (at 30 (is-at truck1 TRU))
-    (not (is-at truck1 TRU))
     (not (is-at truck1 DR))
     (not (is-at truck1 HOS))
     (not (is-at truck1 ROB))
