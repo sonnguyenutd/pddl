@@ -29,9 +29,9 @@
     (is-at d2 DR)
     (is-at d3 DR)
 
-    (= (size d1) 50)
-    (= (size d2) 30)
-    (= (size d3) 45)
+    (= (size d1) 10)
+    (= (size d2) 15)
+    (= (size d3) 18)
 
     (= (cleaning-performance robot1) 3)
     (= (cleaning-performance robot2) 4)
