@@ -31,7 +31,7 @@
 
     (= (size d1) 10)
     (= (size d2) 15)
-    (= (size d3) 18)
+    (= (size d3) 30)
 
     (= (cleaning-performance robot1) 3)
     (= (cleaning-performance robot2) 4)
