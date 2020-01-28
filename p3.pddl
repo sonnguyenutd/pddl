@@ -12,7 +12,7 @@
     (= (loaded-seats ambulance1) 0)
 
     (= (seats ambulance1) 2) 
-    (= (seats truck1) 2)  
+    (= (seats truck1) 3)  
 
     (is-at truck1 TRU)
 
@@ -67,8 +67,8 @@
   (:goal
     (and
       ;(forall (?v - robot) (is-on-vehicle ?v truck1))
-      (forall (?v - robot) (is-at ?v DR))
-      ;(forall (?v - victim) (is-at ?v HOS))
+      ;(forall (?v - robot) (is-at ?v DR))
+      (forall (?v - victim) (is-at ?v HOS))
     )
   )
   
