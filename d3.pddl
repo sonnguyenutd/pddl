@@ -223,7 +223,6 @@
         :parameters 
             (?v - victim
             ?robot - robot
-            ?d - debris
             ?region - location)
         
         :duration 
@@ -234,7 +233,9 @@
                 (at start (is-at ?d ?region))
                 (at start (is-at ?v ?region))
                 (at start (not (is-reported ?v))) 
-                (at start (< (size ?d) 1))
+				(forall (?d - debris)
+					(at start (< (size ?d) 1))
+				)
 	        )
 	            
         :effect
