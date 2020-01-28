@@ -230,12 +230,12 @@
         
         :condition (and
                 (at start (is-at ?robot ?region))
-                (at start (is-at ?d ?region))
                 (at start (is-at ?v ?region))
                 (at start (not (is-reported ?v))) 
 				(at start 
 					(forall (?d - debris)
-					 (< (size ?d) 1)
+						(< (size ?d) 1)
+						(is-at ?d ?region)
 					)
 				)
 	        )
