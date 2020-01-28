@@ -75,10 +75,11 @@
 	            
         :effect
 	        (and 
-	            (at end (is-on-vehicle ?robot ?truck))
+				(at start (increase (loaded-seats ?truck) 1))
+
+	            (at start (is-on-vehicle ?robot ?truck))
                 (at end (not (is-at ?robot ?region)))
 	            (at start (decrease (fuel ?truck) 5))
-	            (at start (increase (loaded-seats ?truck) 1))
 	            (at end (increase (total-fuel-used) 5))
 	        )
 	)
@@ -101,8 +102,9 @@
 	            
         :effect
 	        (and 
+	            (at start (decrease (loaded-seats ?truck) 1))
 				(at start (not (is-on-vehicle ?robot ?truck)))
-	            (at start (decrease (seats ?truck) 1))
+
 				(at end (is-at ?robot ?region))
 				(at start (decrease (fuel ?truck) 10))
 				(at end (increase (total-fuel-used) 10))
@@ -125,9 +127,10 @@
 	            
         :effect
 	        (and 
+				(at start (decrease (loaded-seats ?ambulance) 1))
 				(at start (not (is-on-vehicle ?x ?ambulance)))
 	            (at end (is-at ?x ?region))
-				(at start (decrease (seats ?ambulance) 1))
+				
 				(at start (decrease (fuel ?ambulance) 20))
 				(at end (increase (total-fuel-used) 20))
 	        )
@@ -186,7 +189,6 @@
 	            (at end (increase (total-fuel-used) 10))
 	        )
 	)
-
 
 	(:durative-action remove-debris-step
         :parameters 
