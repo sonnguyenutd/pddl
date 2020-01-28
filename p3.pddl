@@ -32,17 +32,17 @@
     (= (cleaning-performance robot2) 4)
     (= (cleaning-performance robot3) 5)
 
-    (= (distance TRU ROB) 10)
-    (= (distance ROB TRU) 10)
+    (= (distance TRU ROB) 100)
+    (= (distance ROB TRU) 100)
 
-    (= (distance ROB DR) 25)
-    (= (distance DR ROB) 25)
+    (= (distance ROB DR) 250)
+    (= (distance DR ROB) 250)
 
-    (= (distance DR HOS) 15)
-    (= (distance HOS DR) 15)
+    (= (distance DR HOS) 150)
+    (= (distance HOS DR) 150)
 
-    (= (distance TRU DR) 20)
-    (= (distance DR TRU) 20)
+    (= (distance TRU DR) 200)
+    (= (distance DR TRU) 200)
 
 
 
