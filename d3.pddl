@@ -42,8 +42,9 @@
         
         :condition
 	        (and 
+				(at start (is-at ?v ?from))  
+
 	        	(at start (< (loaded-seats ?v) 1)) 
-	            (at start (is-at ?v ?from))  
 				(over all (< (loaded-seats ?v) 1)) 
 	        )
 	            
@@ -51,6 +52,7 @@
 	        (and 
 				(at start (not (is-at ?v ?from)))
 	            (at end (is-at ?v ?to))
+
 				(at start (decrease (fuel ?v) 10))
 				(at end (increase (total-fuel-used) 10))
 	        )
@@ -97,6 +99,8 @@
         :condition
 	        (and 
 	        	(at start (is-on-vehicle ?robot ?truck))
+
+				(at start (> (loaded-seats ?v) 0)) 
 	            (at start (is-at ?truck ?region)) 
 	        )
 	            
