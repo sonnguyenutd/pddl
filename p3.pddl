@@ -46,8 +46,8 @@
     (= (distance DR HOS) 150)
     (= (distance HOS DR) 150)
 
-    (= (distance TRU DR) 200)
-    (= (distance DR TRU) 200)
+    ;(= (distance TRU DR) 200)
+    ;(= (distance DR TRU) 200)
 
 
 
