@@ -14,7 +14,7 @@
     (= (seats ambulance1) 2) 
     (= (seats truck1) 3)  
 
-    (is-at truck1 TRU)
+    (at 30 (is-at truck1 TRU))
 
     (is-at ambulance1 HOS)
 
