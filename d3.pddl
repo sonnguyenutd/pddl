@@ -194,7 +194,61 @@
 	        )
 	)
 
-	(:durative-action remove-debris-step
+	(:durative-action remove-debris-step-3
+        :parameters 
+            (?d - debris
+            ?robot - robot
+            ?region - location)
+        
+        :duration 
+            (= ?duration 10)
+        
+        :condition
+	        (and
+	        	(at start (is-at ?robot ?region))
+                (at start (is-at ?d ?region))
+                (at start (> (size ?d) 0))
+				(over all (is-at ?robot ?region))
+	            (at start (> (fuel ?robot) 5))
+	        )
+	            
+        :effect
+	        (and 
+	        	(at start (decrease (size ?d) (cleaning-performance ?robot)))  
+                (at end (is-at ?robot ?region))
+	            (at start (decrease (fuel ?robot) 5))
+	            (at end (increase (total-fuel-used) 5))
+	        )
+	)
+
+	(:durative-action remove-debris-step-1
+        :parameters 
+            (?d - debris
+            ?robot - robot
+            ?region - location)
+        
+        :duration 
+            (= ?duration 10)
+        
+        :condition
+	        (and
+	        	(at start (is-at ?robot ?region))
+                (at start (is-at ?d ?region))
+                (at start (> (size ?d) 0))
+				(over all (is-at ?robot ?region))
+	            (at start (> (fuel ?robot) 5))
+	        )
+	            
+        :effect
+	        (and 
+	        	(at start (decrease (size ?d) (cleaning-performance ?robot)))  
+                (at end (is-at ?robot ?region))
+	            (at start (decrease (fuel ?robot) 5))
+	            (at end (increase (total-fuel-used) 5))
+	        )
+	)
+
+	(:durative-action remove-debris-step-2
         :parameters 
             (?d - debris
             ?robot - robot
