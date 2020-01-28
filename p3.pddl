@@ -5,7 +5,7 @@
             robot1 robot2 robot3 - robot
             DR ROB TRU HOS - location
             v1 v2 - victim
-            d1 d2 - debris
+            d1 d2 d3 - debris
   )
   (:init
     (= (loaded-seats truck1) 0)
@@ -24,11 +24,14 @@
 
     (is-at v1 DR)
     (is-at v2 DR)
+
     (is-at d1 DR)
     (is-at d2 DR)
+    (is-at d3 DR)
 
     (= (size d1) 50)
     (= (size d2) 30)
+    (= (size d3) 45)
 
     (= (cleaning-performance robot1) 3)
     (= (cleaning-performance robot2) 4)
