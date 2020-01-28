@@ -30,7 +30,7 @@
     (is-at d3 DR)
 
     (= (size d1) 10)
-    (= (size d2) 15)
+    (= (size d2) 50)
     (= (size d3) 30)
 
     (= (cleaning-performance robot1) 3)
