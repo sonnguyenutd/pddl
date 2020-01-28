@@ -234,10 +234,7 @@
                 (at start (not (is-reported ?v))) 
 				(at start 
 					(forall (?d - debris)
-						(and 
-							(< (size ?d) 1)
-							(is-at ?d ?region)
-						)
+						(< (size ?d) 1)
 					)
 				)
 	        )
