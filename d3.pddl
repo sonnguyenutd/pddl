@@ -100,7 +100,6 @@
 	        (and 
 	        	(at start (is-on-vehicle ?robot ?truck))
 
-				(at start (> (loaded-seats ?truck) 0)) 
 	            (at start (is-at ?truck ?region)) 
 	        )
 	            
