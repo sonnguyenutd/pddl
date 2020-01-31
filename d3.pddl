@@ -26,8 +26,8 @@
         (distance ?o1 - object ?o2 - object)
         (fuel ?m - machine)
         (speed ?m - machine)
-        (transport-consumption-rate ?v - vehicle)
-        (moving-consumption-rate ?m - machine)
+        (transport-consumption-rate ?v - vehicle ?from - location ?to - location)
+        (moving-consumption-rate ?m - machine ?from - location ?to - location)
         (size ?d - debris)
         (cleaning-performance ?r - robot)
    		(total-fuel-used)
@@ -53,8 +53,10 @@
 				(at start (not (is-at ?v ?from)))
 	            (at end (is-at ?v ?to))
 
-				(at start (decrease (fuel ?v) 10))
-				(at end (increase (total-fuel-used) 10))
+				(at start (decrease (fuel ?v) 
+							(* (distance ?from ?to) (moving-consumption-rate ?v ?from ?to))))
+				(at end (increase (total-fuel-used) 
+							(* (distance ?from ?to) (moving-consumption-rate ?v ?from ?to))))
 	        )
 	)
 	     
@@ -157,8 +159,10 @@
 	        (and 
 	        	(at start (not (is-at ?v ?from)))
 	            (at end (is-at ?v ?to))
-				(at start (decrease (fuel ?v) 50))
-				(at end (increase (total-fuel-used) 50))
+				(at start (decrease (fuel ?v) 
+							(* (distance ?from ?to) (moving-consumption-rate ?v ?from ?to))))
+				(at end (increase (total-fuel-used) 
+					(* (distance ?from ?to) (moving-consumption-rate ?v ?from ?to))))
 	        )
 	)
 
