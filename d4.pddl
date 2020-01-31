@@ -149,7 +149,7 @@
 				?x - victim
 			)
         
-        :condition
+        :precondition
 	        (and
 				(is-reported ?x)
 
