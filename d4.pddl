@@ -57,11 +57,27 @@
 				(at start (not (is-at ?v ?from)))
 	            (at end (is-at ?v ?to))
 				(over all (is-moving ?v))
-				(at end (not (is-moving ?v)))
 				(at start (decrease (fuel ?v) 
 							(* (distance ?from ?to) (moving-consumption-rate ?v ?from ?to))))
 				(at end (increase (total-fuel-used) 
 							(* (distance ?from ?to) (moving-consumption-rate ?v ?from ?to))))
+	        )
+	)
+
+	(:durative-action stop
+        :parameters 
+            (?v - vehicle)
+        
+        :duration (= ?duration 1)
+        
+        :condition
+	        (and 
+				(at start (is-moving ?v))  
+	        )
+	            
+        :effect
+	        (and 
+				(at end (not (is-moving ?v)))
 	        )
 	)
 	     
