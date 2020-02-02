@@ -89,7 +89,6 @@
       ;(forall (?v - victim) (is-at ?v HOS))
       (is-at v1 HOS)
       (is-at v2 HOS)
-      (is-at v3 HOS)
     )
   )
   
