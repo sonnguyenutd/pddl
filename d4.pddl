@@ -19,7 +19,7 @@
         (is-covered-by ?s1 - staticthing ?s2 - staticthing)
         (is-reported ?v - victim)
         (is-removed ?d - debris)
-        (is-loaded ?v - vehicle)
+        (is-moving ?v - vehicle)
         (is-on-vehicle ?x - physthing ?v - vehicle)
 	)
     
@@ -56,7 +56,8 @@
 	        (and 
 				(at start (not (is-at ?v ?from)))
 	            (at end (is-at ?v ?to))
-
+				(over all (is-moving ?v))
+				(at end (not (is-moving ?v)))
 				(at start (decrease (fuel ?v) 
 							(* (distance ?from ?to) (moving-consumption-rate ?v ?from ?to))))
 				(at end (increase (total-fuel-used) 
@@ -75,6 +76,7 @@
         
         :condition
 	        (and 
+				(at start (not (is-moving ?v)))
 	            (at start (is-at ?robot ?region))
 	            (at start (is-at ?truck ?region)) 
 	            (over all (is-at ?truck ?region))
@@ -84,7 +86,6 @@
         :effect
 	        (and 
 				(at start (increase (loaded-seats ?truck) 1))
-
 	            (at start (is-on-vehicle ?robot ?truck))
                 (at end (not (is-at ?robot ?region)))
 	            (at start (decrease (fuel ?truck) 5))
