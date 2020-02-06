@@ -18,8 +18,8 @@
 
     (is-at ambulance1 HOS)
 
-    (is-at robot1 ROB)
-    (is-at robot2 ROB)
+    ;(is-at robot1 ROB)
+    ;(is-at robot2 ROB)
     (is-at robot3 ROB)
 
     (is-at v1 DR)
