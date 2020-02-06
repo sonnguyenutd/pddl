@@ -22,6 +22,7 @@
         (moved-distance ?v - vehicle)
         (size ?d - debris)
         (cleaning-performance ?r - robot)
+		(total-moved)
     )
 
 	(:action move
@@ -42,6 +43,7 @@
 				(not (is-at ?v ?from))
 	            (is-at ?v ?to)
 				(increase (moved-distance ?v) (distance ?from ?to))
+				(increase (total-moved) (distance ?from ?to))
 	        )
 	)
 	     
@@ -125,7 +127,7 @@
 	        (and 
 	        	(not (is-at ?v ?from))
 	            (is-at ?v ?to)
-				(increase (moved-distance ?v) (distance ?from ?to))
+				(increase (total-moved) (distance ?from ?to))
 	        )
 	)
 
