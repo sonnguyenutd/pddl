@@ -187,10 +187,9 @@
                 (is-at ?v ?region)
                 (not (is-reported ?v))
 				
-				(not 
-					(exists (?d - debris)
-						(> (size ?d) 0)
-					)
+				
+				(forall (?d - debris)
+					(<= (size ?d) 0)
 				)
 			
 	        )
