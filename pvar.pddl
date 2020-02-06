@@ -62,6 +62,6 @@
   )
   
   (:metric 
-        minimize (total-time)
+        minimize (+ (moved-distance truck) (moved-distance ambulance))
   )
 )
