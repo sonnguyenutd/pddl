@@ -21,7 +21,6 @@
         (moved-distance ?v - vehicle)
         (size ?d - debris)
         (cleaning-performance ?r - robot)
-		(total-moved)
     )
 
 	(:action move
@@ -42,7 +41,6 @@
 				(not (is-at ?v ?from))
 	            (is-at ?v ?to)
 				(increase (moved-distance ?v) (distance ?from ?to))
-				(increase (total-moved) (distance ?from ?to))
 	        )
 	)
 	     
@@ -126,7 +124,7 @@
 	        (and 
 	        	(not (is-at ?v ?from))
 	            (is-at ?v ?to)
-				(increase (total-moved) (distance ?from ?to))
+				(increase (moved-distance ?v) (distance ?from ?to))
 	        )
 	)
 
@@ -185,7 +183,7 @@
         :precondition (and
                 (is-at ?robot ?region)
                 (is-at ?v ?region)
-                (not (is-reported ?v))
+                ;(not (is-reported ?v))
 				
 				
 				(forall (?d - debris)
