@@ -228,8 +228,7 @@
             ?robot - robot
             ?region - location)
         
-        :duration 
-            :duration (= ?duration (/ (size ?d) (cleaning-p ?robot)))
+        :duration (= ?duration (/ (size ?d) (cleaning-p ?robot)))
         
         :condition
 	        (and
