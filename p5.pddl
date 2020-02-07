@@ -12,7 +12,7 @@
     ;truck1
     (= (seats truck1) 3)  
     (= (loaded-seats truck1) 0)
-    (at 30 (is-at truck1 TRU))
+    (is-at truck1 TRU)
     (= (consumption-rate truck1) 1.0)  
     (= (fuel truck1) 1000)   
     (= (speed truck1) 15)  
@@ -78,8 +78,8 @@
   (:goal
     (and
       ;(forall (?v - robot) (is-on-vehicle ?v truck1))
-      (forall (?v - robot) (is-at ?v DR))
-      ;(forall (?v - victim) (is-at ?v HOS))
+      ;(forall (?v - robot) (is-at ?v DR))
+      (forall (?v - victim) (is-at ?v HOS))
     )
   )
   
