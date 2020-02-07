@@ -243,8 +243,8 @@
         :effect
 	        (and 
                 (at start (not (is-available ?robot)))
-	        	;(at start (decrease (size ?d) (cleaning-p ?robot)))  
-                (assign (size ?d) 0)
+	        	(at start (decrease (size ?d) (size ?d)))  
+                ;(assign (size ?d) 0)
 
 	            (at start (decrease (fuel ?robot) (* (size ?d) (consumption-rate ?robot))))
 	            (at end (increase (total-fuel-used) (* (size ?d) (consumption-rate ?robot))))
