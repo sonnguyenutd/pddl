@@ -266,7 +266,7 @@
         :condition (and
                 (at start (is-at ?robot ?region))
                 (at start (is-at ?v ?region))
-				(<= (size ?d) 0)
+				(< (size ?d) 1)
 	        )
 	            
         :effect
