@@ -1,4 +1,4 @@
-(define (problem p02)
+(define (problem p5)
   (:domain rescue)
   (:objects truck1 - truck
             ambulance1 - ambulance
@@ -6,7 +6,7 @@
 
             DR ROB TRU HOS - location
             v1 v2 - victim
-            d1 d2 d3 - debris
+            d - debris
   )
   (:init
     ;truck1
@@ -68,13 +68,8 @@
     (is-at v2 DR)
 
     ;debris
-    (is-at d1 DR)
-    (is-at d2 DR)
-    (is-at d3 DR)
-
-    (= (size d1) 10)
-    (= (size d2) 50)
-    (= (size d3) 30)
+    (is-at d DR)
+    (= (size d) 50)
 
     ;Global metric
     (= (total-fuel-used) 0)
@@ -83,8 +78,8 @@
   (:goal
     (and
       ;(forall (?v - robot) (is-on-vehicle ?v truck1))
-      ;(forall (?v - robot) (is-at ?v DR))
-      (forall (?v - victim) (is-at ?v HOS))
+      (forall (?v - robot) (is-at ?v DR))
+      ;(forall (?v - victim) (is-at ?v HOS))
     )
   )
   
