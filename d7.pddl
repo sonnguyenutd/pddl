@@ -1,8 +1,8 @@
 (define (domain rescue)
     (:requirements :typing :durative-actions :fluents)
 
-    (:types victim location physthing - object
-			staticthing machine - physthing
+    (:types location physthing - object
+			victim staticthing machine - physthing
 			vehicle robot - machine
 			truck ambulance - vehicle
             helicopter - ambulance
@@ -19,7 +19,7 @@
         (seats ?v - vehicle)
         (distance ?o1 - location ?o2 - location)
         (fuel ?m - machine)
-        (weight ?v - victim)
+        (weight ?v - physthing)
         (speed ?m - machine)
         (consumption-rate ?m - machine)
    		(total-fuel-used)
