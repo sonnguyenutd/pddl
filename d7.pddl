@@ -1,5 +1,5 @@
 (define (domain rescue)
-    (:requirements :typing :durative-actions :fluents)
+    (:requirements :typing :durative-actions :fluents :adl :timed-initial-literals)
 
     (:types location physthing - object
 			victim staticthing machine - physthing
