@@ -23,7 +23,7 @@
     (= (seats ambulance1) 2) 
     (is-at ambulance1 HOS)
     (= (move-consumption-rate ambulance1) 1.5)   
-    (= (transport-consumption-rate truck1) 1.5)  
+    (= (transport-consumption-rate ambulance1) 1.5)  
     (= (fuel ambulance1) 1000)    
     (= (speed ambulance1) 10)  
      
