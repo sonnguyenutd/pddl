@@ -13,7 +13,7 @@
     (= (loaded-seats truck1) 0)
     (is-at truck1 TRU)
     (= (move-consumption-rate truck1) 1.0)  
-    (= (transport-consumption-rate truck1) 2.2)  
+    (= (transport-consumption-rate truck1) 1.4)  
     (= (fuel truck1) 1000)   
     (= (speed truck1) 15)  
     
@@ -23,7 +23,7 @@
     (= (seats ambulance1) 2) 
     (is-at ambulance1 HOS)
     (= (move-consumption-rate ambulance1) 1.5)   
-    (= (transport-consumption-rate truck1) 3)  
+    (= (transport-consumption-rate truck1) 2.5)  
     (= (fuel ambulance1) 1000)    
     (= (speed ambulance1) 10)  
      
