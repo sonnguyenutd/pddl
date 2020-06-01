@@ -162,7 +162,7 @@
 	        	(at start (> (loaded-seats ?v) 0)) 
 				(over all (> (loaded-seats ?v) 0))
 				(at start (> (fuel ?v) 
-							(* (distance ?from ?to) (move-consumption-rate ?v ))))
+							(* (distance ?from ?to) (transport-consumption-rate ?v ))))
 	        )
 	            
         :effect
@@ -171,9 +171,9 @@
 	        	(at start (not (is-at ?v ?from)))
 	            (at end (is-at ?v ?to))
 				(at start (decrease (fuel ?v) 
-							(* (distance ?from ?to) (move-consumption-rate ?v ))))
+							(* (distance ?from ?to) (transport-consumption-rate ?v ))))
 				(at end (increase (total-fuel-used) 
-					(* (distance ?from ?to) (move-consumption-rate ?v))))
+					(* (distance ?from ?to) (transport-consumption-rate ?v))))
 	        )
 	)
 
