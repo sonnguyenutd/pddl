@@ -157,9 +157,11 @@
         
         :condition
 	        (and 
-	        	(at start (> (loaded-seats ?v) 0))
+	        	(at start (is-at ?v ?from))
+	        	(at start (> (loaded-seats ?v) 0)) 
 				(over all (> (loaded-seats ?v) 0))
-	            (at start (is-at ?v ?from)) 
+				(at start (> (fuel ?v) 
+							(* (distance ?from ?to) (consumption-rate ?v ))))
 	        )
 	            
         :effect
