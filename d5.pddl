@@ -221,7 +221,7 @@
         
         :condition (and
                 (at start (is-at ?robot ?region))
-                (at start (is-at ?v ?region))
+                (over all (is-at ?v ?region))
 	        )
 	            
         :effect
