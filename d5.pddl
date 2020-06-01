@@ -228,7 +228,7 @@
 	            
         :effect
 	        (and 
-				;(at end (increase (reporting ?robot) 1))
+				(at end (increase (reporting ?robot) 1))
 				(at end (found ?robot ?v))
 	        )
 	)
