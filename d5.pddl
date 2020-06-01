@@ -11,7 +11,7 @@
 	(:predicates
 	    (is-at ?x - physthing ?l - location)
         (is-reported ?v - victim)
-		(reporting ?r - robot ?v - victim)
+		(found ?r - robot ?v - victim)
         (is-on-vehicle ?x - physthing ?v - vehicle)
 	)
     
@@ -24,6 +24,7 @@
         (move-consumption-rate ?m - machine)
 		(transport-consumption-rate ?m - vehicle)
         (cleaning-p ?r - robot)
+		(reporting ?r - robot)
    		(total-fuel-used)
     )
 
@@ -227,7 +228,8 @@
 	            
         :effect
 	        (and 
-	            (at end (reporting ?robot ?v))
+				(at end (increase (reporting ?robot) 1))
+				(at end (found ?robot ?v))
 	        )
 	)
 
@@ -239,13 +241,15 @@
             (= ?duration 2)
         
         :condition (and
-				(over all (reporting ?robot ?v))
+				(over all (< (reporting ?robot) 2))
+				(over all (> (reporting ?robot) 0))
+				(at start (found ?robot ?v))
 	        )
 	            
         :effect
 	        (and 
 	            (at end (is-reported ?v))
-				(at end (not (reporting ?robot ?v)))
+				(at end (decrease (reporting ?robot) 1))
 	        )
 	)
 )
