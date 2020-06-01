@@ -21,7 +21,7 @@
         (fuel ?m - machine)
         (speed ?m - machine)
         (move-consumption-rate ?m - machine)
-		(transport-consumption-rate ?m - machine)
+		(transport-consumption-rate ?m - vehicle)
         (cleaning-p ?r - robot)
    		(total-fuel-used)
     )
