@@ -15,7 +15,7 @@
     (= (consumption-rate truck1) 1.0)  
     (= (fuel truck1) 1000)   
     (= (speed truck1) 15)  
-    (is-available truck1)   
+    
 
     ;ambulance1
     (= (loaded-seats ambulance1) 0)
@@ -24,28 +24,28 @@
     (= (consumption-rate ambulance1) 1.5)   
     (= (fuel ambulance1) 1000)    
     (= (speed ambulance1) 10)  
-    (is-available ambulance1)   
+     
 
     ;robot1
     (is-at robot1 ROB)
     (= (cleaning-p robot1) 3)
     (= (consumption-rate robot1) 3)   
     (= (fuel robot1) 1000) 
-    (is-available robot1)  
+    
 
     ;robot2
     (is-at robot2 ROB)
     (= (cleaning-p robot2) 4)
     (= (consumption-rate robot2) 4)   
     (= (fuel robot2) 1000)
-    (is-available robot2)    
+    
 
     ;robot3
     (is-at robot3 ROB)
     (= (cleaning-p robot3) 5)
     (= (consumption-rate robot3) 5)   
     (= (fuel robot3) 1000)  
-    (is-available robot3)
+    
     
     ;----------------------------------
     ;Map
