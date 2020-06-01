@@ -69,15 +69,17 @@
 	            (at start (is-at ?truck ?region)) 
 	            (over all (is-at ?truck ?region))
 	            (at start (> (seats ?truck) (loaded-seats ?truck)))
+
+                (at start (> (fuel ?truck) 5))
 	        )
 	            
         :effect
 	        (and 
-
 				(at start (increase (loaded-seats ?truck) 1))
-	            (at start (is-on-vehicle ?robot ?truck))
-                (at end (not (is-at ?robot ?region)))
-	            (at start (decrease (fuel ?truck) 5))
+	            (at end (is-on-vehicle ?robot ?truck))
+                (at start (not (is-at ?robot ?region)))
+
+                (at start (decrease (fuel ?truck) 5))
 	            (at end (increase (total-fuel-used) 5))
 	        )
 	)
