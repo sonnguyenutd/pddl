@@ -29,14 +29,16 @@
         :parameters 
             (?v - vehicle
              ?from ?to - location)
-        
         :duration (= ?duration (/ (distance ?from ?to) (speed ?v)))
-        
         :condition
 	        (and 
 				(at start (is-at ?v ?from))
 	        	(at start (< (loaded-seats ?v) 1)) 
-				(over all (< (loaded-seats ?v) 1)) 
+				(over all (< (loaded-seats ?v) 1))
+
+                (at start (> (fuel ?v) 
+							(*  (distance ?from ?to) 
+                                (consumption-rate ?v))))
 	        )
 	            
         :effect
@@ -44,10 +46,11 @@
 				(at start (not (is-at ?v ?from)))
 	            (at end (is-at ?v ?to))
 				(at start (decrease (fuel ?v) 
-							(* (distance ?from ?to) (consumption-rate ?v))))
+							(*  (distance ?from ?to) 
+                                (consumption-rate ?v))))
 				(at end (increase (total-fuel-used) 
-							(* (distance ?from ?to) (consumption-rate ?v))))
-
+							(*  (distance ?from ?to) 
+                                (consumption-rate ?v))))
 	        )
 	)
 	     
