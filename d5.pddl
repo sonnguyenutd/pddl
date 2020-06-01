@@ -124,22 +124,27 @@
              	?region - location
 				?x - victim
             )
-		:duration (= ?duration 15)
+		:duration (= ?duration 30)
         :condition
 	        (and 
+                (at start (> (loaded-seats ?ambulance) 0)) 
+                
 	        	(at start (is-on-vehicle ?x ?ambulance))
 	            (at start (is-at ?ambulance ?region))
+                (over all (is-at ?ambulance ?region)) 
+
+                (at start (> (fuel ?ambulance) 30))
 	        )
 	            
         :effect
 	        (and 
+				(at end (decrease (loaded-seats ?ambulance) 1))
 
-				(at start (decrease (loaded-seats ?ambulance) 1))
 				(at start (not (is-on-vehicle ?x ?ambulance)))
 	            (at end (is-at ?x ?region))
 				
-				(at start (decrease (fuel ?ambulance) 20))
-				(at end (increase (total-fuel-used) 20))
+				(at start (decrease (fuel ?ambulance) 30))
+				(at end (increase (total-fuel-used) 30))
 	        )
     )
 
