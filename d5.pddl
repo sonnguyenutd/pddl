@@ -92,21 +92,26 @@
                 ?robot - robot
             )
         
-        :duration (= ?duration 3)
+        :duration (= ?duration 10)
         
         :condition
 	        (and 
-	        	(at start (is-on-vehicle ?robot ?truck))
 				(at start (> (loaded-seats ?truck) 0)) 
+                
+                (at start (is-on-vehicle ?robot ?truck))
 	            (at start (is-at ?truck ?region)) 
+                (over all (is-at ?truck ?region)) 
+                
+                (at start (> (fuel ?truck) 10))
 	        )
 	            
         :effect
 	        (and 
-	            (at start (decrease (loaded-seats ?truck) 1))
-				(at start (not (is-on-vehicle ?robot ?truck)))
+                (at end (decrease (loaded-seats ?truck) 1))
 				
+                (at start (not (is-on-vehicle ?robot ?truck)))
 				(at end (is-at ?robot ?region))
+
 				(at start (decrease (fuel ?truck) 10))
 				(at end (increase (total-fuel-used) 10))
 	        )
