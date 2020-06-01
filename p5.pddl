@@ -12,7 +12,8 @@
     (= (seats truck1) 3)  
     (= (loaded-seats truck1) 0)
     (is-at truck1 TRU)
-    (= (consumption-rate truck1) 1.0)  
+    (= (move-consumption-rate truck1) 1.0)  
+    (= (transport-consumption-rate truck1) 2.2)  
     (= (fuel truck1) 1000)   
     (= (speed truck1) 15)  
     
@@ -21,7 +22,8 @@
     (= (loaded-seats ambulance1) 0)
     (= (seats ambulance1) 2) 
     (is-at ambulance1 HOS)
-    (= (consumption-rate ambulance1) 1.5)   
+    (= (move-consumption-rate ambulance1) 1.5)   
+    (= (transport-consumption-rate truck1) 3)  
     (= (fuel ambulance1) 1000)    
     (= (speed ambulance1) 10)  
      
@@ -29,21 +31,21 @@
     ;robot1
     (is-at robot1 ROB)
     (= (cleaning-p robot1) 3)
-    (= (consumption-rate robot1) 3)   
+    (= (move-consumption-rate robot1) 3)   
     (= (fuel robot1) 1000) 
     
 
     ;robot2
     (is-at robot2 ROB)
     (= (cleaning-p robot2) 4)
-    (= (consumption-rate robot2) 4)   
+    (= (move-consumption-rate robot2) 4)   
     (= (fuel robot2) 1000)
     
 
     ;robot3
     (is-at robot3 ROB)
     (= (cleaning-p robot3) 5)
-    (= (consumption-rate robot3) 5)   
+    (= (move-consumption-rate robot3) 5)   
     (= (fuel robot3) 1000)  
     
     

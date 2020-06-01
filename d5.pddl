@@ -20,7 +20,8 @@
         (distance ?o1 - object ?o2 - object)
         (fuel ?m - machine)
         (speed ?m - machine)
-        (consumption-rate ?m - machine)
+        (move-consumption-rate ?m - machine)
+		(transport-consumption-rate ?m - machine)
         (cleaning-p ?r - robot)
    		(total-fuel-used)
     )
@@ -38,7 +39,7 @@
 
                 (at start (> (fuel ?v) 
 							(*  (distance ?from ?to) 
-                                (consumption-rate ?v))))
+                                (move-consumption-rate ?v))))
 	        )
 	            
         :effect
@@ -47,10 +48,10 @@
 	            (at end (is-at ?v ?to))
 				(at start (decrease (fuel ?v) 
 							(*  (distance ?from ?to) 
-                                (consumption-rate ?v))))
+                                (move-consumption-rate ?v))))
 				(at end (increase (total-fuel-used) 
 							(*  (distance ?from ?to) 
-                                (consumption-rate ?v))))
+                                (move-consumption-rate ?v))))
 	        )
 	)
 	     
@@ -161,7 +162,7 @@
 	        	(at start (> (loaded-seats ?v) 0)) 
 				(over all (> (loaded-seats ?v) 0))
 				(at start (> (fuel ?v) 
-							(* (distance ?from ?to) (consumption-rate ?v ))))
+							(* (distance ?from ?to) (transport-consumption-rate ?v ))))
 	        )
 	            
         :effect
@@ -170,9 +171,9 @@
 	        	(at start (not (is-at ?v ?from)))
 	            (at end (is-at ?v ?to))
 				(at start (decrease (fuel ?v) 
-							(* (distance ?from ?to) (consumption-rate ?v ))))
+							(* (distance ?from ?to) (transport-consumption-rate ?v ))))
 				(at end (increase (total-fuel-used) 
-					(* (distance ?from ?to) (consumption-rate ?v))))
+					(* (distance ?from ?to) (transport-consumption-rate ?v))))
 	        )
 	)
 
@@ -190,23 +191,22 @@
         :condition
 	        (and
 				(at start (is-reported ?x))
-
                 (at start (is-at ?x ?region))
-	            (at start (is-at ?ambulance ?region)) 
+	            (at start (is-at ?ambulance ?region))
 	            (over all (is-at ?ambulance ?region))
-				(at start (> (seats ?ambulance) (loaded-seats ?ambulance)))
 
-	            (at start (> (fuel ?ambulance) 10))
+				(at start (> (seats ?ambulance) (loaded-seats ?ambulance)))
+	            (at start (> (fuel ?ambulance) 20))
 	        )
 	            
         :effect
 	        (and 
 				(at start (increase (loaded-seats ?ambulance) 1))
-				
                 (at end (is-on-vehicle ?x ?ambulance))
-				(at end (not (is-at ?x ?region)))
-	            (at start (decrease (fuel ?ambulance) 10))
-	            (at end (increase (total-fuel-used) 10))
+				(at start (not (is-at ?x ?region)))
+
+	            (at start (decrease (fuel ?ambulance) 20))
+	            (at end (increase (total-fuel-used) 20))
 	        )
 	)
 
