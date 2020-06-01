@@ -220,7 +220,7 @@
             (= ?duration 2)
         
         :condition (and
-                (at start (is-at ?robot ?region))
+                (over all (is-at ?robot ?region))
                 (over all (is-at ?v ?region))
 	        )
 	            
