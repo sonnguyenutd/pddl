@@ -57,9 +57,6 @@
     (is-diff v1 v2)
     (is-diff v2 v1)
 
-    (not (is-diff v2 v2))
-    (not (is-diff v1 v1))
-    
     ;Global metric
     (= (total-fuel-used) 0)
   )
