@@ -256,6 +256,7 @@
         :effect
 	        (and 
 	            (at end (is-reported ?v))
+				(at end (not (found ?robot ?v)))
 	        )
 	)
 )
