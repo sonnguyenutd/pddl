@@ -6,7 +6,6 @@
 
             DR ROB TRU HOS - location
             v1 v2 - victim
-            d - debris
   )
   (:init
     ;truck1
@@ -66,10 +65,6 @@
     ;Victims
     (is-at v1 DR)
     (is-at v2 DR)
-
-    ;debris
-    (is-at d DR)
-    (= (size d) 50)
 
     ;Global metric
     (= (total-fuel-used) 0)
