@@ -13,6 +13,7 @@
         (is-reported ?v - victim)
 		(found ?r - robot ?v - victim)
         (is-on-vehicle ?x - physthing ?v - vehicle)
+		(is-diff ?v1 - victim ?v2 - victim)
 	)
     
     (:functions
@@ -228,7 +229,6 @@
 	            
         :effect
 	        (and 
-				(at end (increase (reporting ?robot) 1))
 				(at end (found ?robot ?v))
 	        )
 	)
@@ -241,14 +241,21 @@
             (= ?duration 2)
         
         :condition (and
-				(over all (>= (reporting ?robot) 1))
 				(at start (found ?robot ?v))
+				(over all
+					(not 
+						(exists (?v2 - victim) (and
+								(found ?robot ?v2)
+								(is-diff ?v ?v2)
+							)
+						)
+					)
+				)
 	        )
 	            
         :effect
 	        (and 
 	            (at end (is-reported ?v))
-				(at end (decrease (reporting ?robot) 1))
 	        )
 	)
 )

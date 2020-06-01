@@ -68,7 +68,8 @@
     ;Victims
     (is-at v1 DR)
     (is-at v2 DR)
-
+    (is-diff v1 v2)
+    (is-diff v2 v1)
     ;Global metric
     (= (total-fuel-used) 0)
   )
