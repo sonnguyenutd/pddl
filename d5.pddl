@@ -11,6 +11,7 @@
 	(:predicates
 	    (is-at ?x - physthing ?l - location)
         (is-reported ?v - victim)
+		(reporting ?r - robot ?v - victim)
         (is-on-vehicle ?x - physthing ?v - vehicle)
 	)
     
@@ -210,23 +211,41 @@
 	        )
 	)
 
-	(:durative-action report-victim
+	(:durative-action find-victim
         :parameters 
             (?v - victim
             ?robot - robot
             ?region - location)
         
         :duration 
+            (= ?duration 0)
+        
+        :condition (and
+                (at start (is-at ?robot ?region))
+                (at start (is-at ?v ?region))
+	        )
+	            
+        :effect
+	        (and 
+	            (at end (reporting ?robot ?v))
+	        )
+	)
+
+	(:durative-action report-victim
+        :parameters 
+            (?v - victim ?robot - robot)
+        
+        :duration 
             (= ?duration 2)
         
         :condition (and
-                (over all (is-at ?robot ?region))
-                (over all (is-at ?v ?region))
+				(over all (reporting ?robot ?v))
 	        )
 	            
         :effect
 	        (and 
 	            (at end (is-reported ?v))
+				(at end (not (reporting ?robot ?v)))
 	        )
 	)
 )
