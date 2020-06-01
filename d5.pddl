@@ -21,7 +21,6 @@
         (fuel ?m - machine)
         (speed ?m - machine)
         (consumption-rate ?m - machine)
-        (size ?d - debris)
         (cleaning-p ?r - robot)
    		(total-fuel-used)
     )
