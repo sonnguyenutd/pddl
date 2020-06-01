@@ -241,7 +241,6 @@
             (= ?duration 2)
         
         :condition (and
-				(over all (< (reporting ?robot) 2))
 				(over all (> (reporting ?robot) 0))
 				(at start (found ?robot ?v))
 	        )
