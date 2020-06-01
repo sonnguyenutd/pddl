@@ -228,7 +228,7 @@
 	            
         :effect
 	        (and 
-				(at end (increase (reporting ?robot) 1))
+				;(at end (increase (reporting ?robot) 1))
 				(at end (found ?robot ?v))
 	        )
 	)
@@ -241,7 +241,7 @@
             (= ?duration 2)
         
         :condition (and
-				(over all (> (reporting ?robot) 0))
+				;(over all (>= (reporting ?robot) 1))
 				(at start (found ?robot ?v))
 	        )
 	            
