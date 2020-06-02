@@ -79,7 +79,9 @@
     (and
       ;(forall (?v - robot) (is-on-vehicle ?v truck1))
       ;(forall (?v - robot) (is-at ?v DR))
-      (forall (?v - victim) (is-at ?v HOS))
+      ;(forall (?v - victim) (is-at ?v HOS))
+      (is-at truck1 DR)
+      (is-at truck1 ROB)
     )
   )
   
