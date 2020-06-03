@@ -33,7 +33,7 @@
     (= (cleaning-p robot1) 3)
     (= (move-consumption-rate robot1) 3)   
     (= (fuel robot1) 1000) 
-    (= (reporting robot1) 0)
+    (is-available robot1)
     
 
     ;robot2
@@ -41,14 +41,14 @@
     (= (cleaning-p robot2) 4)
     (= (move-consumption-rate robot2) 4)   
     (= (fuel robot2) 1000)
-    (= (reporting robot2) 0)
+    (is-available robot2)
 
     ;robot3
     (is-at robot3 ROB)
     (= (cleaning-p robot3) 5)
     (= (move-consumption-rate robot3) 5)   
     (= (fuel robot3) 1000)  
-    (= (reporting robot3) 0)
+    (is-available robot3)
     
     ;----------------------------------
     ;Map

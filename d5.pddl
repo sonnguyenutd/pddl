@@ -14,6 +14,7 @@
 		(found ?r - robot ?v - victim)
         (is-on-vehicle ?x - physthing ?v - vehicle)
 		(is-diff ?v1 - victim ?v2 - victim)
+		(is-available ?r - robot)
 	)
     
     (:functions
@@ -235,28 +236,24 @@
 
 	(:durative-action report-victim
         :parameters 
-            (?v - victim ?robot - robot)
+            (?v - victim
+            ?robot - robot
+            ?region - location)
         
         :duration 
             (= ?duration 2)
         
         :condition (and
-				(at start (found ?robot ?v))
-				(over all
-					(not 
-						(exists (?v2 - victim) (and
-								(found ?robot ?v2)
-								(is-diff ?v ?v2)
-							)
-						)
-					)
-				)
+				(at start (is-at ?robot ?region))
+                (at start (is-at ?v ?region))
+				(at start (is-available ?robot))
 	        )
 	            
         :effect
 	        (and 
+				(at start (not (is-available ?robot)))
+				(at end (is-available ?robot))
 	            (at end (is-reported ?v))
-				(at end (not (found ?robot ?v)))
 	        )
 	)
 )
