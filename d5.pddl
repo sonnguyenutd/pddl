@@ -214,26 +214,6 @@
 	        )
 	)
 
-	(:durative-action find-victim
-        :parameters 
-            (?v - victim
-            ?robot - robot
-            ?region - location)
-        
-        :duration 
-            (= ?duration 0)
-        
-        :condition (and
-                (at start (is-at ?robot ?region))
-                (at start (is-at ?v ?region))
-	        )
-	            
-        :effect
-	        (and 
-				(at end (found ?robot ?v))
-	        )
-	)
-
 	(:durative-action report-victim
         :parameters 
             (?v - victim
@@ -241,7 +221,7 @@
             ?region - location)
         
         :duration 
-            (= ?duration 2)
+            (= ?duration 20)
         
         :condition (and
 				(at start (is-at ?robot ?region))
