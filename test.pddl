@@ -4,9 +4,9 @@
 
 
 (:objects 
- Truck-1 Truck-2 Truck-3 Truck-4 - truck
+ Truck-1 Truck-2 - truck
  Robot-1 Robot-2 Robot-3 Robot-4 - robot
- Ambulance-1 Ambulance-2 Ambulance-3 - ambulance
+ Ambulance-1 - ambulance
 )
 (:init 
 (= (loaded-seats Truck-1) 0)
@@ -25,21 +25,6 @@
 (= (fuel Truck-2) 8287)
 (= (speed Truck-2) 45)
 
-(= (loaded-seats Truck-3) 0)
-(= (seats Truck-3) 2)
-(is-at Truck-3 TRU)
-(= (move-consumption-rate Truck-3) 1.6)
-(= (transport-consumption-rate Truck-3) 2.5)
-(= (fuel Truck-3) 5313)
-(= (speed Truck-3) 41)
-
-(= (loaded-seats Truck-4) 0)
-(= (seats Truck-4) 4)
-(is-at Truck-4 TRU)
-(= (move-consumption-rate Truck-4) 1.8)
-(= (transport-consumption-rate Truck-4) 2.2)
-(= (fuel Truck-4) 9467)
-(= (speed Truck-4) 60)
 
 (is-at Robot-1 ROB)
 (= (fuel Robot-1) 773)
@@ -65,21 +50,6 @@
 (= (fuel Ambulance-1) 9697)
 (= (speed Ambulance-1) 43)
 
-(= (loaded-seats Ambulance-2) 0)
-(= (seats Ambulance-2) 1)
-(is-at Ambulance-2 HOS)
-(= (move-consumption-rate Ambulance-2) 1.4)
-(= (transport-consumption-rate Ambulance-2) 1.9)
-(= (fuel Ambulance-2) 9200)
-(= (speed Ambulance-2) 45)
-
-(= (loaded-seats Ambulance-3) 0)
-(= (seats Ambulance-3) 1)
-(is-at Ambulance-3 HOS)
-(= (move-consumption-rate Ambulance-3) 1.5)
-(= (transport-consumption-rate Ambulance-3) 1.8)
-(= (fuel Ambulance-3) 7462)
-(= (speed Ambulance-3) 42)
 
 
 
