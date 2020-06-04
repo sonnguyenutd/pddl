@@ -86,12 +86,6 @@
       ;(is-at truck1 ROB)
     )
   )
-  
-  (:constraints
-    (and
-      (preference p1  (< (total-fuel-truck) 500))
-    )
-  )
 
   (:constraints (and  
                       ;(preference p1  (always (< (total-fuel-truck) 500)))
