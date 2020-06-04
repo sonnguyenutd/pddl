@@ -89,12 +89,12 @@
   
   (:constraints
     (and
-      (< (total-fuel-truck) 500)
+      (at end (< (total-fuel-truck) 500)) 
     )
   )
-  (:metric 
+  ;(:metric 
         ;minimize (total-fuel-used)
-        minimize (total-time)
+  ;      minimize (total-time)
         ;minimize (total-fuel-truck)
-  )
+  ;)
 )
