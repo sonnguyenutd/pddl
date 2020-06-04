@@ -21,7 +21,7 @@
     (= (move-consumption-rate truck2) 1.0)  
     (= (transport-consumption-rate truck2) 1.5)  
     (= (fuel truck2) 1000)   
-    (= (speed truck2) 15)  
+    (= (speed truck2) 20)  
     
 
     ;ambulance1
