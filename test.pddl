@@ -6,7 +6,7 @@
 (:objects 
  Truck-1 - truck
  Robot-1 Robot-2 Robot-3 - robot
- Ambulance-1 Ambulance-2 - ambulance
+ Ambulance-1 Ambulance-2 Ambulance-5 - ambulance
 )
 (:init 
 (= (loaded-seats Truck-1) 0)
@@ -44,6 +44,13 @@
 (= (fuel Ambulance-2) 9200)
 (= (speed Ambulance-2) 45)
 
+(= (loaded-seats Ambulance-5) 0)
+(= (seats Ambulance-5) 3)
+(is-at Ambulance-5 HOS)
+(= (move-consumption-rate Ambulance-5) 1.2)
+(= (transport-consumption-rate Ambulance-5) 1.6)
+(= (fuel Ambulance-5) 6596)
+(= (speed Ambulance-5) 51)
 
 
     
