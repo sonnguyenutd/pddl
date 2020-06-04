@@ -4,57 +4,77 @@
 
 
 (:objects 
- Truck-1 - truck
- Robot-1 Robot-2 Robot-4 - robot
- Ambulance-1 Ambulance-2 Ambulance-5 - ambulance
+ Truck-1 Truck-2 Truck-3 - truck
+ Robot-1 Robot-2 Robot-3 Robot-4 - robot
+ Ambulance-1 Ambulance-2 Ambulance-3 - ambulance
 )
 (:init 
 (= (loaded-seats Truck-1) 0)
-(= (seats Truck-1) 5)
+(= (seats Truck-1) 4)
 (is-at Truck-1 TRU)
-(= (move-consumption-rate Truck-1) 1.3)
-(= (transport-consumption-rate Truck-1) 2.3)
-(= (fuel Truck-1) 100000)
-(= (speed Truck-1) 60)
+(= (move-consumption-rate Truck-1) 1.6)
+(= (transport-consumption-rate Truck-1) 2.2)
+(= (fuel Truck-1) 14256)
+(= (speed Truck-1) 52)
 
+(= (loaded-seats Truck-2) 0)
+(= (seats Truck-2) 2)
+(is-at Truck-2 TRU)
+(= (move-consumption-rate Truck-2) 1.7)
+(= (transport-consumption-rate Truck-2) 2.2)
+(= (fuel Truck-2) 10512)
+(= (speed Truck-2) 48)
 
+(= (loaded-seats Truck-3) 0)
+(= (seats Truck-3) 4)
+(is-at Truck-3 TRU)
+(= (move-consumption-rate Truck-3) 1.6)
+(= (transport-consumption-rate Truck-3) 1.9)
+(= (fuel Truck-3) 10168)
+(= (speed Truck-3) 45)
 
 (is-at Robot-1 ROB)
-(= (fuel Robot-1) 773)
+(= (fuel Robot-1) 524)
 (is-available Robot-1)
 
 (is-at Robot-2 ROB)
-(= (fuel Robot-2) 752)
+(= (fuel Robot-2) 802)
 (is-available Robot-2)
 
+(is-at Robot-3 ROB)
+(= (fuel Robot-3) 960)
+(is-available Robot-3)
+
 (is-at Robot-4 ROB)
-(= (fuel Robot-4) 574)
+(= (fuel Robot-4) 828)
 (is-available Robot-4)
 
 (= (loaded-seats Ambulance-1) 0)
-(= (seats Ambulance-1) 4)
+(= (seats Ambulance-1) 2)
 (is-at Ambulance-1 HOS)
-(= (move-consumption-rate Ambulance-1) 1.1)
-(= (transport-consumption-rate Ambulance-1) 1.8)
-(= (fuel Ambulance-1) 100000)
-(= (speed Ambulance-1) 43)
-
+(= (move-consumption-rate Ambulance-1) 1.4)
+(= (transport-consumption-rate Ambulance-1) 1.5)
+(= (fuel Ambulance-1) 16501)
+(= (speed Ambulance-1) 56)
 
 (= (loaded-seats Ambulance-2) 0)
-(= (seats Ambulance-2) 1)
+(= (seats Ambulance-2) 4)
 (is-at Ambulance-2 HOS)
-(= (move-consumption-rate Ambulance-2) 1.4)
+(= (move-consumption-rate Ambulance-2) 1.0)
 (= (transport-consumption-rate Ambulance-2) 1.9)
-(= (fuel Ambulance-2) 9200)
-(= (speed Ambulance-2) 45)
+(= (fuel Ambulance-2) 17342)
+(= (speed Ambulance-2) 35)
 
-(= (loaded-seats Ambulance-5) 0)
-(= (seats Ambulance-5) 3)
-(is-at Ambulance-5 HOS)
-(= (move-consumption-rate Ambulance-5) 1.2)
-(= (transport-consumption-rate Ambulance-5) 1.6)
-(= (fuel Ambulance-5) 100000)
-(= (speed Ambulance-5) 51)
+(= (loaded-seats Ambulance-3) 0)
+(= (seats Ambulance-3) 4)
+(is-at Ambulance-3 HOS)
+(= (move-consumption-rate Ambulance-3) 1.1)
+(= (transport-consumption-rate Ambulance-3) 1.8)
+(= (fuel Ambulance-3) 17064)
+(= (speed Ambulance-3) 50)
+
+
+
 
 
     
