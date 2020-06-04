@@ -89,12 +89,12 @@
 
   (:constraints (and  
                       ;(preference p1  (always (< (total-fuel-truck) 500)))
-                      (preference p1  (sometime (is-at truck1 ROB)))
+                      (preference p1  (sometime (is-at truck1 HOS)))
                 ))
 
-  ;(:metric 
+  (:metric 
         ;minimize (total-fuel-used)
-  ;      minimize (total-time)
-        ;minimize (total-fuel-truck)
-  ;)
+        ;minimize (total-time)
+        minimize (total-fuel-truck)
+  )
 )
