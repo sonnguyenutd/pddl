@@ -11,7 +11,7 @@
 (is-at Truck-1 TRU)
 (= (move-consumption-rate Truck-1) 1.0)
 (= (transport-consumption-rate Truck-1) 2.3)
-(= (fuel Truck-1) 685)
+(= (fuel Truck-1) 10000)
 (= (speed Truck-1) 51)
 
 (is-at Robot-1 ROB)
@@ -28,7 +28,7 @@
 (is-at Ambulance-1 HOS)
 (= (move-consumption-rate Ambulance-1) 1.4)
 (= (transport-consumption-rate Ambulance-1) 1.7)
-(= (fuel Ambulance-1) 763)
+(= (fuel Ambulance-1) 10000)
 (= (speed Ambulance-1) 56)
 
 
