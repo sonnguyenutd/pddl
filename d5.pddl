@@ -4,7 +4,7 @@
     (:types location physthing - object
 			staticthing machine - physthing
 			vehicle robot - machine
-			truck ambulance - vehicle
+			helicopter truck ambulance - vehicle
 			victim - staticthing)
 	
 	(:constants 
