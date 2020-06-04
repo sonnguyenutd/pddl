@@ -9,7 +9,7 @@
     (= (seats truck1) 3)  
     (= (loaded-seats truck1) 0)
     (is-at truck1 TRU)
-    (= (move-consumption-rate truck1) 1.0)  
+    (= (move-consumption-rate truck1) 1.2)  
     (= (transport-consumption-rate truck1) 1.5)  
     (= (fuel truck1) 1000)   
     (= (speed truck1) 15)  
