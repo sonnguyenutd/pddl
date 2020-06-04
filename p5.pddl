@@ -64,6 +64,8 @@
     
     ;Global metric
     (= (total-fuel-used) 0)
+    (= (total-fuel-truck) 0)
+    (= (total-fuel-ambulance) 0)
   )
 
   (:goal
