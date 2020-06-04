@@ -113,6 +113,7 @@
         
         :condition
 	        (and 
+                (at start (< (total-fuel-truck) 930)) 
 	            (at start (is-at ?robot ?region))
 	            (at start (is-at ?truck ?region)) 
 	            (over all (is-at ?truck ?region))
@@ -144,6 +145,7 @@
         
         :condition
 	        (and 
+                (at start (< (total-fuel-truck) 930)) 
 				(at start (> (loaded-seats ?truck) 0)) 
                 
                 (at start (is-on-vehicle ?robot ?truck))
@@ -206,6 +208,7 @@
         
         :condition
 	        (and 
+                (at start (< (total-fuel-truck) 930)) 
 	        	(at start (is-at ?v ?from))
 	        	(at start (> (loaded-seats ?v) 0)) 
 				(over all (> (loaded-seats ?v) 0))
