@@ -5,7 +5,7 @@
 
 (:objects 
  Truck-1 - truck
- Robot-1 Robot-2 Robot-3 Robot-4 - robot
+ Robot-1 Robot-2 Robot-3 - robot
  Ambulance-1 - ambulance
 )
 (:init 
@@ -26,6 +26,10 @@
 (is-at Robot-2 ROB)
 (= (fuel Robot-2) 752)
 (is-available Robot-2)
+
+(is-at Robot-3 ROB)
+(= (fuel Robot-3) 528)
+(is-available Robot-3)
 
 (= (loaded-seats Ambulance-1) 0)
 (= (seats Ambulance-1) 4)
