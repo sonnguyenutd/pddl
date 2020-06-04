@@ -70,6 +70,39 @@
 	        )
 	)
 
+    (:durative-action move_t
+        :parameters 
+            (?v - truck
+             ?from ?to - location)
+        :duration (= ?duration (/ (distance ?from ?to) (speed ?v)))
+        :condition
+	        (and 
+                (at start (< (total-fuel-truck) 100)) 
+				(at start (is-at ?v ?from)) 
+	        	(at start (< (loaded-seats ?v) 1)) 
+				(over all (< (loaded-seats ?v) 1))
+
+                (at start (> (fuel ?v) 
+							(*  (distance ?from ?to) 
+                                (move-consumption-rate ?v))))
+	        )
+	            
+        :effect
+	        (and 
+				(at start (not (is-at ?v ?from)))
+	            (at end (is-at ?v ?to))
+				(at start (decrease (fuel ?v) 
+							(*  (distance ?from ?to) 
+                                (move-consumption-rate ?v))))
+				(at end (increase (total-fuel-used) 
+							(*  (distance ?from ?to) 
+                                (move-consumption-rate ?v))))
+                (at end (increase (total-fuel-truck) 
+							(*  (distance ?from ?to) 
+                                (move-consumption-rate ?v))))
+	        )
+	)
+
     (:durative-action move_a
         :parameters 
             (?v - ambulance
