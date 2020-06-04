@@ -44,7 +44,7 @@
         :duration (= ?duration (/ (distance ?from ?to) (speed ?v)))
         :condition
 	        (and 
-                ;(at start (< (total-fuel-truck) 500)) 
+                (at start (< (total-fuel-truck) 500)) 
 				(at start (is-at ?v ?from))
 	        	(at start (< (loaded-seats ?v) 1)) 
 				(over all (< (loaded-seats ?v) 1))
@@ -113,7 +113,7 @@
         
         :condition
 	        (and 
-                ;(at start (< (total-fuel-truck) 500)) 
+                (at start (< (total-fuel-truck) 500)) 
 	            (at start (is-at ?robot ?region))
 	            (at start (is-at ?truck ?region)) 
 	            (over all (is-at ?truck ?region))
@@ -145,7 +145,7 @@
         
         :condition
 	        (and 
-                ;(at start (< (total-fuel-truck) 500)) 
+                (at start (< (total-fuel-truck) 500)) 
 				(at start (> (loaded-seats ?truck) 0)) 
                 
                 (at start (is-on-vehicle ?robot ?truck))
@@ -208,7 +208,7 @@
         
         :condition
 	        (and 
-                ;(at start (< (total-fuel-truck) 500)) 
+                (at start (< (total-fuel-truck) 500)) 
 	        	(at start (is-at ?v ?from))
 	        	(at start (> (loaded-seats ?v) 0)) 
 				(over all (> (loaded-seats ?v) 0))
