@@ -6,7 +6,7 @@
 (:objects 
  Truck-11 Truck-12 Truck-13 Truck-14 Truck-15 Truck-16 Truck-17 Truck-18 Truck-19 Truck-20 Truck-21 Truck-22 Truck-23 Truck-24 Truck-1 - truck
  Robot-11 Robot-12 Robot-13 Robot-14 Robot-15 Robot-16 Robot-17 Robot-18 Robot-19 Robot-20 Robot-21 Robot-22 Robot-23 Robot-24 Robot-1 Robot-2 Robot-4 - robot
- Ambulance-11 Ambulance-12 Ambulance-13 Ambulance-14 Ambulance-15 Ambulance-16 Ambulance-17 Ambulance-18 Ambulance-19 Ambulance-20 Ambulance-21 Ambulance-22 Ambulance-23 cleAmbulance-1 Ambulance-2 Ambulance-5 - ambulance
+ Ambulance-1 Ambulance-2 Ambulance-5  Ambulance-11 Ambulance-12 Ambulance-13 Ambulance-14 Ambulance-15 Ambulance-16 Ambulance-17 Ambulance-18 Ambulance-19 Ambulance-20 Ambulance-21 Ambulance-22 Ambulance-23 - ambulance
 )
 (:init 
 (= (loaded-seats Truck-1) 0)
