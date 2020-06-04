@@ -17,13 +17,6 @@
 (= (fuel Truck-1) 9312)
 (= (speed Truck-1) 60)
 
-(= (loaded-seats Truck-2) 0)
-(= (seats Truck-2) 5)
-(is-at Truck-2 TRU)
-(= (move-consumption-rate Truck-2) 1.6)
-(= (transport-consumption-rate Truck-2) 2.4)
-(= (fuel Truck-2) 8287)
-(= (speed Truck-2) 45)
 
 
 (is-at Robot-1 ROB)
