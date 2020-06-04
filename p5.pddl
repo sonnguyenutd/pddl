@@ -1,6 +1,6 @@
 (define (problem p5)
   (:domain rescue)
-  (:objects truck1 - truck
+  (:objects truck1 truck2 - truck
             ambulance1 - ambulance
             robot1 robot2 robot3 - robot
   )
@@ -13,6 +13,15 @@
     (= (transport-consumption-rate truck1) 1.5)  
     (= (fuel truck1) 1000)   
     (= (speed truck1) 15)  
+
+    ;truck2
+    (= (seats truck2) 3)  
+    (= (loaded-seats truck2) 0)
+    (is-at truck2 TRU)
+    (= (move-consumption-rate truck2) 1.0)  
+    (= (transport-consumption-rate truck2) 1.5)  
+    (= (fuel truck2) 1000)   
+    (= (speed truck2) 15)  
     
 
     ;ambulance1
