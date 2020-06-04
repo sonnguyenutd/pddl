@@ -1,98 +1,85 @@
 (define (problem p5)
   (:domain rescue)
-  (:objects 
- Truck-1 Truck-2 Truck-3 - truck
- Robot-1 Robot-2 Robot-3 Robot-4 Robot-5 Robot-6 - robot
- Ambulance-1 Ambulance-2 Ambulance-3 Ambulance-4 Ambulance-5 - ambulance
+ (:objects 
+ Truck-1 Truck-2 Truck-3 Truck-4 - truck
+ Robot-1 Robot-2 Robot-3 Robot-4 - robot
+ Ambulance-1 Ambulance-2 Ambulance-3 - ambulance
 )
 (:init 
 (= (loaded-seats Truck-1) 0)
-(= (seats Truck-1) 2)
+(= (seats Truck-1) 4)
 (is-at Truck-1 TRU)
-(= (move-consumption-rate Truck-1) 1.46)
-(= (transport-consumption-rate Truck-1) 2.45)
-(= (fuel Truck-1) 849)
-(= (speed Truck-1) 40)
+(= (move-consumption-rate Truck-1) 1.08)
+(= (transport-consumption-rate Truck-1) 2.33)
+(= (fuel Truck-1) 685)
+(= (speed Truck-1) 51)
 
 (= (loaded-seats Truck-2) 0)
-(= (seats Truck-2) 4)
+(= (seats Truck-2) 5)
 (is-at Truck-2 TRU)
-(= (move-consumption-rate Truck-2) 1.5)
-(= (transport-consumption-rate Truck-2) 1.83)
-(= (fuel Truck-2) 753)
+(= (move-consumption-rate Truck-2) 1.6)
+(= (transport-consumption-rate Truck-2) 1.97)
+(= (fuel Truck-2) 843)
 (= (speed Truck-2) 60)
 
 (= (loaded-seats Truck-3) 0)
 (= (seats Truck-3) 4)
 (is-at Truck-3 TRU)
-(= (move-consumption-rate Truck-3) 1.61)
-(= (transport-consumption-rate Truck-3) 2.47)
-(= (fuel Truck-3) 864)
-(= (speed Truck-3) 55)
+(= (move-consumption-rate Truck-3) 1.0)
+(= (transport-consumption-rate Truck-3) 1.87)
+(= (fuel Truck-3) 546)
+(= (speed Truck-3) 57)
+
+(= (loaded-seats Truck-4) 0)
+(= (seats Truck-4) 5)
+(is-at Truck-4 TRU)
+(= (move-consumption-rate Truck-4) 1.13)
+(= (transport-consumption-rate Truck-4) 2.45)
+(= (fuel Truck-4) 656)
+(= (speed Truck-4) 49)
 
 (is-at Robot-1 ROB)
-(= (fuel Robot-1) 514)
+(= (fuel Robot-1) 542)
 (is-available Robot-1)
 
 (is-at Robot-2 ROB)
-(= (fuel Robot-2) 957)
+(= (fuel Robot-2) 694)
 (is-available Robot-2)
 
 (is-at Robot-3 ROB)
-(= (fuel Robot-3) 717)
+(= (fuel Robot-3) 989)
 (is-available Robot-3)
 
 (is-at Robot-4 ROB)
-(= (fuel Robot-4) 956)
+(= (fuel Robot-4) 812)
 (is-available Robot-4)
 
-(is-at Robot-5 ROB)
-(= (fuel Robot-5) 591)
-(is-available Robot-5)
-
-(is-at Robot-6 ROB)
-(= (fuel Robot-6) 798)
-(is-available Robot-6)
-
 (= (loaded-seats Ambulance-1) 0)
-(= (seats Ambulance-1) 2)
+(= (seats Ambulance-1) 3)
 (is-at Ambulance-1 HOS)
-(= (move-consumption-rate Ambulance-1) 1.21)
-(= (transport-consumption-rate Ambulance-1) 1.51)
-(= (fuel Ambulance-1) 595)
-(= (speed Ambulance-1) 34)
+(= (move-consumption-rate Ambulance-1) 1.44)
+(= (transport-consumption-rate Ambulance-1) 1.76)
+(= (fuel Ambulance-1) 763)
+(= (speed Ambulance-1) 56)
 
 (= (loaded-seats Ambulance-2) 0)
 (= (seats Ambulance-2) 3)
 (is-at Ambulance-2 HOS)
-(= (move-consumption-rate Ambulance-2) 1.03)
-(= (transport-consumption-rate Ambulance-2) 1.71)
-(= (fuel Ambulance-2) 956)
-(= (speed Ambulance-2) 52)
+(= (move-consumption-rate Ambulance-2) 1.33)
+(= (transport-consumption-rate Ambulance-2) 1.77)
+(= (fuel Ambulance-2) 618)
+(= (speed Ambulance-2) 47)
 
 (= (loaded-seats Ambulance-3) 0)
 (= (seats Ambulance-3) 2)
 (is-at Ambulance-3 HOS)
-(= (move-consumption-rate Ambulance-3) 1.4)
-(= (transport-consumption-rate Ambulance-3) 1.63)
-(= (fuel Ambulance-3) 837)
-(= (speed Ambulance-3) 54)
+(= (move-consumption-rate Ambulance-3) 1.11)
+(= (transport-consumption-rate Ambulance-3) 1.81)
+(= (fuel Ambulance-3) 605)
+(= (speed Ambulance-3) 60)
 
-(= (loaded-seats Ambulance-4) 0)
-(= (seats Ambulance-4) 4)
-(is-at Ambulance-4 HOS)
-(= (move-consumption-rate Ambulance-4) 1.3)
-(= (transport-consumption-rate Ambulance-4) 1.59)
-(= (fuel Ambulance-4) 852)
-(= (speed Ambulance-4) 35)
 
-(= (loaded-seats Ambulance-5) 0)
-(= (seats Ambulance-5) 4)
-(is-at Ambulance-5 HOS)
-(= (move-consumption-rate Ambulance-5) 1.17)
-(= (transport-consumption-rate Ambulance-5) 1.76)
-(= (fuel Ambulance-5) 883)
-(= (speed Ambulance-5) 56)
+
     
 
 
