@@ -4,7 +4,7 @@
 
 
 (:objects 
- Truck-1 Truck-2 - truck
+ Truck-1 - truck
  Robot-1 Robot-2 Robot-3 Robot-4 - robot
  Ambulance-1 - ambulance
 )
