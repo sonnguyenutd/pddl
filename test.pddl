@@ -49,7 +49,7 @@
 (is-at Ambulance-5 HOS)
 (= (move-consumption-rate Ambulance-5) 1.2)
 (= (transport-consumption-rate Ambulance-5) 1.6)
-(= (fuel Ambulance-5) 6596)
+(= (fuel Ambulance-5) 100000)
 (= (speed Ambulance-5) 51)
 
 
