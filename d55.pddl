@@ -44,7 +44,7 @@
         :duration (= ?duration (/ (distance ?from ?to) (speed ?v)))
         :condition
 	        (and 
-                (at start (< (total-fuel-truck) 940)) 
+                (at start (< (total-fuel-truck) 930)) 
 				(at start (is-at ?v ?from))
 	        	(at start (< (loaded-seats ?v) 1)) 
 				(over all (< (loaded-seats ?v) 1))
