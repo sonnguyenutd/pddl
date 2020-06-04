@@ -7,7 +7,11 @@
 			truck ambulance - vehicle
 			victim - staticthing)
 	
-	
+	(:constants 
+		DR ROB TRU HOS - location
+		v1 v2 - victim
+	)
+
 	(:predicates
 	    (is-at ?x - physthing ?l - location)
         (is-reported ?v - victim)
@@ -74,7 +78,6 @@
 	            (at start (is-at ?truck ?region)) 
 	            (over all (is-at ?truck ?region))
 	            (at start (> (seats ?truck) (loaded-seats ?truck)))
-
                 (at start (> (fuel ?truck) 5))
 	        )
 	            
@@ -234,6 +237,7 @@
 				(at start (not (is-available ?robot)))
 				(at end (is-available ?robot))
 	            (at end (is-reported ?v))
+				(at end (increase (total-fuel-used) 20))
 	        )
 	)
 )

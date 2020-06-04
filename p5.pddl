@@ -3,9 +3,6 @@
   (:objects truck1 - truck
             ambulance1 - ambulance
             robot1 robot2 robot3 - robot
-
-            DR ROB TRU HOS - location
-            v1 v2 - victim
   )
   (:init
     ;truck1
@@ -37,16 +34,12 @@
     
 
     ;robot2
-    (is-at robot2 ROB)
-    (= (cleaning-p robot2) 4)
-    (= (move-consumption-rate robot2) 4)   
+    (is-at robot2 ROB) 
     (= (fuel robot2) 1000)
     (is-available robot2)
 
     ;robot3
     (is-at robot3 ROB)
-    (= (cleaning-p robot3) 5)
-    (= (move-consumption-rate robot3) 5)   
     (= (fuel robot3) 1000)  
     (is-available robot3)
     
@@ -78,7 +71,7 @@
   (:goal
     (and
       ;(forall (?v - robot) (is-on-vehicle ?v truck1))
-      (forall (?v - robot) (is-at ?v DR))
+      ;(forall (?v - robot) (is-at ?v DR))
       (forall (?v - victim) (is-at ?v HOS))
       ;(is-at truck1 DR)
       ;(is-at truck1 ROB)
