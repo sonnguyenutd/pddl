@@ -27,8 +27,6 @@
 
     ;robot1
     (is-at robot1 ROB)
-    (= (cleaning-p robot1) 3)
-    (= (move-consumption-rate robot1) 3)   
     (= (fuel robot1) 1000) 
     (is-available robot1)
     

@@ -2,15 +2,15 @@
   (:domain rescue)
  (:objects 
  Truck-1 - truck
- Robot-1 Robot-2 Robot-3 Robot-4 - robot
+ Robot-1 Robot-2 - robot
  Ambulance-1 - ambulance
 )
 (:init 
 (= (loaded-seats Truck-1) 0)
 (= (seats Truck-1) 4)
 (is-at Truck-1 TRU)
-(= (move-consumption-rate Truck-1) 1.08)
-(= (transport-consumption-rate Truck-1) 2.33)
+(= (move-consumption-rate Truck-1) 1.0)
+(= (transport-consumption-rate Truck-1) 2.3)
 (= (fuel Truck-1) 685)
 (= (speed Truck-1) 51)
 
@@ -22,19 +22,12 @@
 (= (fuel Robot-2) 694)
 (is-available Robot-2)
 
-(is-at Robot-3 ROB)
-(= (fuel Robot-3) 989)
-(is-available Robot-3)
-
-(is-at Robot-4 ROB)
-(= (fuel Robot-4) 812)
-(is-available Robot-4)
 
 (= (loaded-seats Ambulance-1) 0)
 (= (seats Ambulance-1) 3)
 (is-at Ambulance-1 HOS)
-(= (move-consumption-rate Ambulance-1) 1.44)
-(= (transport-consumption-rate Ambulance-1) 1.76)
+(= (move-consumption-rate Ambulance-1) 1.4)
+(= (transport-consumption-rate Ambulance-1) 1.7)
 (= (fuel Ambulance-1) 763)
 (= (speed Ambulance-1) 56)
 
