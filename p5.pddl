@@ -89,7 +89,7 @@
 
   (:constraints (and  
                       ;(preference p1  (always (< (total-fuel-truck) 500)))
-                      (preference p1  (always (is-at truck1 TRU)))
+                      (preference p1  (sometime (is-at ambulance1 TRU)))
                 ))
 
   (:metric 
