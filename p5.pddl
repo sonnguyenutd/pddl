@@ -89,7 +89,7 @@
   
   (:constraints
     (and
-      (at end (< (total-fuel-truck) 500)) 
+      (< (total-fuel-truck) 500)
     )
   )
   (:metric 
