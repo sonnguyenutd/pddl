@@ -14,7 +14,7 @@
 (is-at Truck-1 TRU)
 (= (move-consumption-rate Truck-1) 1.3)
 (= (transport-consumption-rate Truck-1) 2.3)
-(= (fuel Truck-1) 9312)
+(= (fuel Truck-1) 100000)
 (= (speed Truck-1) 60)
 
 
@@ -40,7 +40,7 @@
 (is-at Ambulance-1 HOS)
 (= (move-consumption-rate Ambulance-1) 1.1)
 (= (transport-consumption-rate Ambulance-1) 1.8)
-(= (fuel Ambulance-1) 9697)
+(= (fuel Ambulance-1) 100000)
 (= (speed Ambulance-1) 43)
 
 
