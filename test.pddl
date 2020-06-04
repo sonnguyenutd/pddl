@@ -27,14 +27,6 @@
 (= (fuel Robot-2) 752)
 (is-available Robot-2)
 
-(is-at Robot-3 ROB)
-(= (fuel Robot-3) 528)
-(is-available Robot-3)
-
-(is-at Robot-4 ROB)
-(= (fuel Robot-4) 574)
-(is-available Robot-4)
-
 (= (loaded-seats Ambulance-1) 0)
 (= (seats Ambulance-1) 4)
 (is-at Ambulance-1 HOS)
