@@ -92,6 +92,12 @@
       (preference p1  (< (total-fuel-truck) 500))
     )
   )
+
+  (:constraints (and  
+                      (preference p1  (always (< (total-fuel-truck) 500)))
+                      
+                ))
+
   ;(:metric 
         ;minimize (total-fuel-used)
   ;      minimize (total-time)
