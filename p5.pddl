@@ -80,6 +80,7 @@
   
   (:metric 
         ;minimize (total-fuel-used)
-        minimize (total-time)
+        ;minimize (total-time)
+        minimize (total-fuel-truck)
   )
 )
